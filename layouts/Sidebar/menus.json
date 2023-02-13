@@ -1,0 +1,148 @@
+[
+    {
+        "id": 1,
+        "name": "Dashboards",
+        "url": "/",
+        "icon": "fonticon-house",
+        "subMenu": [
+            {
+                "id": 2,
+                "name": "Default",
+                "url": "/"
+            },
+            {
+                "id": 3,
+                "name": "eCommerce",
+                "url": "/ecommerce"
+            },
+            {
+                "id": 4,
+                "name": "Projects",
+                "url": "/projects"
+            },
+            {
+                "id" : 5,
+                "name": "Online Courses",
+                "url": "/online-courses"
+            },
+            {
+                "id": 6,
+                "name": "Marketing",
+                "url": "/marketing"
+            },
+            {
+                "id": 7,
+                "name": "Binding",
+                "url": "/binding"
+            },
+            {
+                "id": 8,
+                "name": "POS System",
+                "url": "/pos"
+            },
+            {
+                "id": 9,
+                "name": "Call Center",
+                "url": "/callback"
+            },
+            {
+                "id": 10,
+                "name": "Logistics",
+                "url": "/logistic"
+            },
+            {
+                "id": 11,
+                "name": "Website Analytics",
+                "url": "/website-analytics"
+            },
+            {
+                "id": 12,
+                "name": "Social",
+                "url": "/social"
+            },
+            {
+                "id": 13,
+                "name": "Delivery",
+                "url": "/delivery"
+            },
+            {
+                "id": 14,
+                "name": "Crypto",
+                "url": "/crypto"
+            },
+            {
+                "id": 15,
+                "name": "School",
+                "url": "/school"
+            },
+            {
+                "id": 16,
+                "name": "Podcast",
+                "url": "/podcast"
+            },
+            {
+                "id": 17,
+                "name": "Landing",
+                "url": "/landing"
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Pages",
+        "url": "/",
+        "icon": "fonticon-setting",
+        "subMenu": [
+            {
+                "id": 19,
+                "name": "User Profile",
+                "url": "/",
+                "subMenu": [
+                    {
+                        "id": 20,
+                        "name": "Overview",
+                        "url": "/overview"
+                    },
+                    {
+                        "id": 21,
+                        "name": "Projects",
+                        "url": "/projects",
+                        "subMenu": [
+                        {
+                            "id": 22,
+                            "name": "All",
+                            "url": "/all"
+                        },
+                        {
+                            "id": 23,
+                            "name": "Nonactive",
+                            "url": "/nonactive"
+                        }
+                        ]
+                    },
+                    {
+                        "id": 24,
+                        "name": "Campaigns",
+                        "url": "/campaigns"
+                    },
+                    {
+                        "id": 25,
+                        "name": "Documents",
+                        "url": "/documents"
+                    }
+                ]
+            },
+            {
+                "id": 26,
+                "name": "eCommerce",
+                "url": "/ecommerce"
+            }
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Users", 
+        "url": "/user",
+        "icon": "fonticon-user"
+    }
+]

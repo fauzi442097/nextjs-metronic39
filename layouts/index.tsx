@@ -3,6 +3,7 @@ import React, {ReactNode, useEffect} from 'react'
 import Header from './Header'
 import Sidebar from './Sidebar';
 import dynamic from 'next/dynamic'
+import Footer from './footer';
 
 interface Props {
    children: ReactNode
@@ -29,14 +30,27 @@ const index = ({children} : Props) => {
 
          {/* Wrapper */}
          <div className="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+
+            {/* Sidebar */}
             <Sidebar/>
+            {/* End Sidebar */}
+
+            {/* Main */}
+            <div className="app-main flex-column flex-row-fluid" id="kt_app_main">
+               <div id="kt_app_content" className="app-content flex-column-fluid">
+                  <div id="kt_app_content_container" className="app-container container-fluid">
+                     {children}
+                  </div>
+               </div>
+               
+               <Footer/>
+            </div>
+            {/* End Main */}
          </div>
          {/* End Wrapper */}
+
       </div>
       {/* End Page */}
-      {children}
-      
-
     </div>
   )
 }
