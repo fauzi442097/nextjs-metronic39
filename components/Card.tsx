@@ -1,9 +1,38 @@
-import React from 'react'
+import React, {ReactNode} from 'react'
 
-const Card = () => {
+type childrenProp = {
+  children: ReactNode
+}
+
+type cardProp = childrenProp & {
+  className?: string
+}
+
+const Card = ({ children, className, ...props } : cardProp) => {
   return (
-    <div>Card</div>
+    <div {...props} className={`card border-0`}>
+      {children}
+    </div>
   )
 }
+
+const CardHeader = ({ children, className, ...props}: cardProp) => {
+  return (
+    <div {...props} className={`card-header border-0 p-0`}>
+      {children}
+    </div>
+  )
+}
+
+const CardBody = ({ children, className, ...props} : cardProp) => {
+  return (
+    <div {...props} className={`card-body p-0`}>
+      {children}
+    </div>
+  )
+}
+
+Card.Header = CardHeader
+Card.Body = CardBody
 
 export default Card

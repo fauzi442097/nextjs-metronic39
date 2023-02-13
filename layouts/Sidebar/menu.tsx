@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter } from "next/router";
 
@@ -88,11 +88,18 @@ const SubMenu = ({ subMenu, parentName } : ISubMenu) => {
     )
 }
 
-const Menu = React.forwardRef<HTMLDivElement, IMenu>(({name, icon, subMenu}: IMenu, ref: any) => {    
-    const activeLink = Boolean(ref.current?.querySelector(".active"));
+const Menu =(({name, icon, subMenu}: IMenu) => {    
+    
+    const [ activeLink, setActiveLink ] = useState(false);
+
+    const refMenu = useRef<HTMLDivElement>(null);
+    
+    useEffect(() => {
+        if ( refMenu.current ) setActiveLink(Boolean(refMenu.current.querySelector(".active"))) 
+    }, [])
 
     return (
-        <div data-kt-menu-trigger="click" className={`menu-item menu-accordion ${activeLink ? 'open show hover' : ''}`}>
+        <div ref={refMenu} data-kt-menu-trigger="click" className={`menu-item menu-accordion ${activeLink ? 'open show hover' : ''}`}>
             <span className="menu-link">
               <span className="menu-icon">
                 <i className={`${icon} fs-2`} />
