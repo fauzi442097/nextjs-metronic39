@@ -1,7 +1,9 @@
 import React from 'react'
-import NavbarNotifications from './navbar-notifications'
-import NavbarQuickLinks from './navbar-quicklinks'
-import NavbarUserMenu from './navbar-usermenu'
+import dynamic from 'next/dynamic'
+
+const NavbarNotifications = dynamic(() => import('./navbar-notifications'));
+const NavbarQuickLinks = dynamic(() => import('./navbar-quicklinks'));
+const NavbarUserMenu = dynamic(() => import('./navbar-usermenu'));
 
 const Navbar = () => {
   return (
