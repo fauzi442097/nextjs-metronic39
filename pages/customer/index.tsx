@@ -216,7 +216,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="mastercard">
-            <img src="assets/media/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 1074</td>
+            <img src="img/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 1074</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>14 Dec 2020, 8:43 pm</td>
@@ -271,7 +271,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="visa">
-            <img src="assets/media/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 9500</td>
+            <img src="img/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 9500</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>01 Dec 2020, 10:12 am</td>
@@ -326,7 +326,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="mastercard">
-            <img src="assets/media/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 5073</td>
+            <img src="img/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 5073</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>12 Nov 2020, 2:01 pm</td>
@@ -381,7 +381,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="american_express">
-            <img src="assets/media/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 3866</td>
+            <img src="img/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 3866</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>21 Oct 2020, 5:54 pm</td>
@@ -436,7 +436,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="visa">
-            <img src="assets/media/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 8408</td>
+            <img src="img/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 8408</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>19 Oct 2020, 7:32 am</td>
@@ -491,7 +491,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="american_express">
-            <img src="assets/media/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 7907</td>
+            <img src="img/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 7907</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>23 Sep 2020, 12:37 am</td>
@@ -546,7 +546,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="mastercard">
-            <img src="assets/media/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 2183</td>
+            <img src="img/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 2183</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>11 Sep 2020, 3:15 pm</td>
@@ -601,7 +601,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="american_express">
-            <img src="assets/media/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 2541</td>
+            <img src="img/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 2541</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>03 Sep 2020, 1:08 am</td>
@@ -656,7 +656,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="visa">
-            <img src="assets/media/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 8965</td>
+            <img src="img/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 8965</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>01 Sep 2020, 4:58 pm</td>
@@ -711,7 +711,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="visa">
-            <img src="assets/media/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 5158</td>
+            <img src="img/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 5158</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>18 Aug 2020, 3:34 pm</td>
@@ -766,7 +766,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="mastercard">
-            <img src="assets/media/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 7390</td>
+            <img src="img/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 7390</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>14 Aug 2020, 1:21 pm</td>
@@ -821,7 +821,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="american_express">
-            <img src="assets/media/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 2621</td>
+            <img src="img/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 2621</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>11 Aug 2020, 5:13 pm</td>
@@ -876,7 +876,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="mastercard">
-            <img src="assets/media/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 1074</td>
+            <img src="img/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 1074</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>14 Dec 2020, 8:43 pm</td>
@@ -931,7 +931,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="visa">
-            <img src="assets/media/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 9500</td>
+            <img src="img/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 9500</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>01 Dec 2020, 10:12 am</td>
@@ -986,7 +986,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="mastercard">
-            <img src="assets/media/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 5073</td>
+            <img src="img/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 5073</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>12 Nov 2020, 2:01 pm</td>
@@ -1041,7 +1041,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="american_express">
-            <img src="assets/media/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 3866</td>
+            <img src="img/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 3866</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>21 Oct 2020, 5:54 pm</td>
@@ -1096,7 +1096,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="visa">
-            <img src="assets/media/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 8408</td>
+            <img src="img/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 8408</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>19 Oct 2020, 7:32 am</td>
@@ -1151,7 +1151,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="american_express">
-            <img src="assets/media/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 7907</td>
+            <img src="img/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 7907</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>23 Sep 2020, 12:37 am</td>
@@ -1206,7 +1206,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="mastercard">
-            <img src="assets/media/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 2183</td>
+            <img src="img/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 2183</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>11 Sep 2020, 3:15 pm</td>
@@ -1261,7 +1261,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="american_express">
-            <img src="assets/media/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 2541</td>
+            <img src="img/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 2541</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>03 Sep 2020, 1:08 am</td>
@@ -1316,7 +1316,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="visa">
-            <img src="assets/media/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 8965</td>
+            <img src="img/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 8965</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>01 Sep 2020, 4:58 pm</td>
@@ -1371,7 +1371,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="visa">
-            <img src="assets/media/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 5158</td>
+            <img src="img/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 5158</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>18 Aug 2020, 3:34 pm</td>
@@ -1426,7 +1426,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="mastercard">
-            <img src="assets/media/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 7390</td>
+            <img src="img/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 7390</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>14 Aug 2020, 1:21 pm</td>
@@ -1481,7 +1481,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="american_express">
-            <img src="assets/media/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 2621</td>
+            <img src="img/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 2621</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>11 Aug 2020, 5:13 pm</td>
@@ -1536,7 +1536,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="mastercard">
-            <img src="assets/media/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 1074</td>
+            <img src="img/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 1074</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>14 Dec 2020, 8:43 pm</td>
@@ -1591,7 +1591,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="visa">
-            <img src="assets/media/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 9500</td>
+            <img src="img/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 9500</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>01 Dec 2020, 10:12 am</td>
@@ -1646,7 +1646,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="mastercard">
-            <img src="assets/media/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 5073</td>
+            <img src="img/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 5073</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>12 Nov 2020, 2:01 pm</td>
@@ -1701,7 +1701,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="american_express">
-            <img src="assets/media/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 3866</td>
+            <img src="img/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 3866</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>21 Oct 2020, 5:54 pm</td>
@@ -1756,7 +1756,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="visa">
-            <img src="assets/media/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 8408</td>
+            <img src="img/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 8408</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>19 Oct 2020, 7:32 am</td>
@@ -1811,7 +1811,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="american_express">
-            <img src="assets/media/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 7907</td>
+            <img src="img/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 7907</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>23 Sep 2020, 12:37 am</td>
@@ -1866,7 +1866,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="mastercard">
-            <img src="assets/media/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 2183</td>
+            <img src="img/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 2183</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>11 Sep 2020, 3:15 pm</td>
@@ -1921,7 +1921,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="american_express">
-            <img src="assets/media/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 2541</td>
+            <img src="img/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 2541</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>03 Sep 2020, 1:08 am</td>
@@ -1976,7 +1976,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="visa">
-            <img src="assets/media/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 8965</td>
+            <img src="img/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 8965</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>01 Sep 2020, 4:58 pm</td>
@@ -2031,7 +2031,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="visa">
-            <img src="assets/media/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 5158</td>
+            <img src="img/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 5158</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>18 Aug 2020, 3:34 pm</td>
@@ -2086,7 +2086,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="mastercard">
-            <img src="assets/media/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 7390</td>
+            <img src="img/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 7390</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>14 Aug 2020, 1:21 pm</td>
@@ -2141,7 +2141,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="american_express">
-            <img src="assets/media/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 2621</td>
+            <img src="img/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 2621</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>11 Aug 2020, 5:13 pm</td>
@@ -2196,7 +2196,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="mastercard">
-            <img src="assets/media/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 1074</td>
+            <img src="img/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 1074</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>14 Dec 2020, 8:43 pm</td>
@@ -2251,7 +2251,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="visa">
-            <img src="assets/media/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 9500</td>
+            <img src="img/svg/card-logos/visa.svg" className="w-35px me-3" alt="" />**** 9500</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>01 Dec 2020, 10:12 am</td>
@@ -2306,7 +2306,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="mastercard">
-            <img src="assets/media/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 5073</td>
+            <img src="img/svg/card-logos/mastercard.svg" className="w-35px me-3" alt="" />**** 5073</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>12 Nov 2020, 2:01 pm</td>
@@ -2361,7 +2361,7 @@ const Customer = () => {
             {/*end::Company=*/}
             {/*begin::Payment method=*/}
             <td data-filter="american_express">
-            <img src="assets/media/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 3866</td>
+            <img src="img/svg/card-logos/american-express.svg" className="w-35px me-3" alt="" />**** 3866</td>
             {/*end::Payment method=*/}
             {/*begin::Date=*/}
             <td>21 Oct 2020, 5:54 pm</td>

@@ -1,8 +1,15 @@
-import React from 'react'
-import Navbar from './navbar'
+import React, { useEffect } from 'react'
+import dynamic from 'next/dynamic';
+
+const Navbar = dynamic(() => import('./navbar'), {ssr: false})
 
 
-const header = () => {
+const Header = () => {
+
+   useEffect(() => {
+      KTToggle.createInstances();
+   }, [])
+
   return (
    <div id="kt_app_header" className="app-header d-flex flex-column flex-stack">
 
@@ -11,7 +18,6 @@ const header = () => {
          <div className="app-header-logo d-flex align-items-center ps-lg-12" id="kt_app_header_logo">
             {/* begin::Sidebar toggle */}
             <div id="kt_app_sidebar_toggle" className="app-sidebar-toggle btn btn-sm btn-icon bg-body btn-color-gray-600 btn-active-color-primary w-30px h-30px ms-n2 me-4 d-none d-lg-flex" data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body" data-kt-toggle-name="app-sidebar-minimize">
-               {/* begin::Svg Icon | path: icons/duotune/text/txt012.svg */}
                <span className="svg-icon svg-icon-6">
                   <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                      <rect width="16" height="2" rx="1" transform="matrix(-1 0 0 1 16 0)" fill="currentColor" />
@@ -19,7 +25,6 @@ const header = () => {
                      <rect width="16" height="2" rx="1" transform="matrix(-1 0 0 1 16 12)" fill="currentColor" />
                   </svg>
                </span>
-               {/* end::Svg Icon */}
             </div>
             {/* end::Sidebar toggle */}
 
@@ -54,4 +59,4 @@ const header = () => {
   )
 }
 
-export default header
+export default Header

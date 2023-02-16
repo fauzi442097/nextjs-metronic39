@@ -8062,13 +8062,13 @@ var KTAppSidebar = function () {
 	return {
 		init: function () {
 			// Elements
-			toggle = document.querySelector('#kt_app_sidebar_toggle');
+			// toggle = document.querySelector('#kt_app_sidebar_toggle');
 			wrapper = document.querySelector('#kt_app_sidebar_wrapper');
 			sidebar = document.querySelector('#kt_app_sidebar');
 
-			if ( toggle ) {
-				handleToggle();	
-			}
+			// if ( toggle ) {
+			// 	handleToggle();	
+			// }
 			
 			if ( wrapper ) {
 				handleMenuScroll();

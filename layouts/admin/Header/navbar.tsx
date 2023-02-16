@@ -1,9 +1,9 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-const NavbarNotifications = dynamic(() => import('./navbar-notifications'));
-const NavbarQuickLinks = dynamic(() => import('./navbar-quicklinks'));
-const NavbarUserMenu = dynamic(() => import('./navbar-usermenu'));
+const NavbarNotifications = dynamic(() => import('./navbar-notifications'), {ssr: false});
+const NavbarQuickLinks = dynamic(() => import('./navbar-quicklinks'), {ssr: false});
+const NavbarUserMenu = dynamic(() => import('./navbar-usermenu'), {ssr: false});
 
 const Navbar = () => {
   return (

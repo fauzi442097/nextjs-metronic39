@@ -19,8 +19,8 @@ export default function Document() {
       
       <body id="kt_app_body" data-kt-app-header-fixed="true" data-kt-app-header-fixed-mobile="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-aside-enabled="true" data-kt-app-aside-fixed="true" data-kt-app-aside-push-toolbar="true" data-kt-app-aside-push-footer="true" className="app-default">
         <Main />
-        <Script src='/js/plugins.bundle.js' strategy='beforeInteractive'/>
-        <Script src='/js/scripts.bundle.js' strategy='beforeInteractive'/>
+        <script src="/js/plugins.bundle.js"></script>
+        <script src="/js/scripts.bundle.js"></script>
         <NextScript />
       </body>
     </Html>
