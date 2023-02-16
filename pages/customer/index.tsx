@@ -1,9 +1,26 @@
-import Card from '@/components/Card'
-import PageToolbar, {PageTitle, PageAction} from '@/components/PageToolbar'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { 
+   Card,
+   Modal,
+   PageToolbar,
+   PageAction,
+   PageTitle,
+   Button,
+   Alert,
+   AlertLight,
+   Input,
+   Select,
+   Checkbox,
+   Radio,
+   Badge,
+   BadgeLight
+} from '@/components'
+
 
 const Customer = () => {
 
+   const [showModal, setShowModal] = useState(false);
+   
   return (
    <>
       <PageToolbar>
@@ -13,8 +30,52 @@ const Customer = () => {
             <a href="#" className="btn btn-flex btn-primary h-40px fs-7 fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_create_campaign">New Campaign</a>
          </PageAction>
       </PageToolbar>
+
       <div id="kt_app_content" className="app-content flex-column-fluid">
          <div id="kt_app_content_container" className="app-container container-fluid">
+
+         <Alert type="warning" title="Warning" message="Terjadi Kesalahan"/>
+         <Alert type="primary" title="Warning" message="Terjadi Kesalahan"/>
+
+         <AlertLight type="warning" title="Warning" message="Terjadi Kesalahan"/>
+         <AlertLight type="success" title="Sukses" message="Berhasil disimpan"/>
+
+         <Input.Text name="name" className="form-control-solid"/>
+
+         <Select name="jurusan">
+            <option value="1"> IT </option>
+            <option value="1"> IT </option>
+         </Select>
+
+         <Checkbox label="Nama"/>
+         <Radio />
+
+         <Badge type='danger'> Nonaktif </Badge>
+         <BadgeLight type='success'> Aktif </BadgeLight>
+
+
+         
+         
+         
+         <Button type="primary" data-bs-toggle="modal"
+            data-bs-target="#kt_modal_1"> Launch demo modal </Button>
+
+
+         <Modal id="kt_modal_1">
+            <Modal.Header> <h3 className="modal-title">Modal title</h3> </Modal.Header>
+            <Modal.Body>
+               <p>Modal body text goes here.</p>
+            </Modal.Body>
+            <Modal.Footer>
+                  <Button.Custom
+                     className="btn-light"
+                     data-bs-dismiss="modal"
+                     > Close </Button.Custom>
+                  <Button> Save changes </Button>
+            </Modal.Footer>
+         </Modal>
+
+            
             <Card>
                <Card.Header>
                   <div className="card-title">

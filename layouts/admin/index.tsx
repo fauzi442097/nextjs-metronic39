@@ -1,8 +1,7 @@
-import Script from 'next/script';
-import React, {ReactNode, useEffect} from 'react'
+
+import React, {ReactNode, useEffect, ReactElement} from 'react'
 import Header from './Header'
 import Sidebar from './Sidebar';
-import dynamic from 'next/dynamic'
 import Footer from './footer';
 
 interface Props {
@@ -13,7 +12,7 @@ const setThemeMode = () => {
    var defaultThemeMode = "light"; 
    document.documentElement.setAttribute("data-bs-theme", defaultThemeMode); 
 }
-
+ 
 const index = ({children} : Props) => {
 
    useEffect(() => {
