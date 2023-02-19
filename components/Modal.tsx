@@ -1,4 +1,4 @@
-import React, {HTMLAttributes, ReactNode} from 'react'
+import React, {HTMLAttributes, ReactNode, ComponentType} from 'react'
 
 type propsModal = {
     children: ReactNode,

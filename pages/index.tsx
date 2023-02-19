@@ -170,19 +170,19 @@ export default function Home() {
                       <span className="symbol-label bg-warning text-inverse-warning fw-bold">A</span>
                     </div>
                     <div className="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Michael Eberon">
-                      <img alt="Pic" src="assets/media/avatars/300-11.jpg" />
+                      <img alt="Pic" src="img/avatars/300-11.jpg" />
                     </div>
                     <div className="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Susan Redwood">
                       <span className="symbol-label bg-primary text-inverse-primary fw-bold">S</span>
                     </div>
                     <div className="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Melody Macy">
-                      <img alt="Pic" src="assets/media/avatars/300-2.jpg" />
+                      <img alt="Pic" src="img/avatars/300-2.jpg" />
                     </div>
                     <div className="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Perry Matthew">
                       <span className="symbol-label bg-danger text-inverse-danger fw-bold">P</span>
                     </div>
                     <div className="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Barry Walter">
-                      <img alt="Pic" src="assets/media/avatars/300-12.jpg" />
+                      <img alt="Pic" src="img/avatars/300-12.jpg" />
                     </div>
                     <a href="#" className="symbol symbol-35px symbol-circle" data-bs-toggle="modal" data-bs-target="#kt_modal_view_users">
                       <span className="symbol-label bg-light text-gray-400 fs-8 fw-bold">+42</span>
@@ -281,7 +281,7 @@ export default function Home() {
                           {/*begin::Switch*/}
                           <label className="form-check form-switch form-check-custom form-check-solid">
                             {/*begin::Input*/}
-                            <input className="form-check-input w-30px h-20px" type="checkbox" defaultValue={1} defaultChecked="checked" name="notifications" />
+                            <input className="form-check-input w-30px h-20px" type="checkbox" defaultValue={1} name="notifications" />
                             {/*end::Input*/}
                             {/*end::Label*/}
                             <span className="form-check-label text-muted fs-6">Recuring</span>
@@ -338,8 +338,8 @@ export default function Home() {
                 {/*end::Title*/}
                 {/*begin::Illustration*/}
                 <div className="py-10 text-center">
-                  <img src="assets/media/svg/illustrations/easy/2.svg" className="theme-light-show w-200px" alt="" />
-                  <img src="assets/media/svg/illustrations/easy/2-dark.svg" className="theme-dark-show w-200px" alt="" />
+                  <img src="img/svg/illustrations/easy/2.svg" className="theme-light-show w-200px" alt="" />
+                  <img src="img/svg/illustrations/easy/2-dark.svg" className="theme-dark-show w-200px" alt="" />
                 </div>
                 {/*end::Illustration*/}
               </div>
@@ -505,7 +505,7 @@ export default function Home() {
                   <tbody>
                     <tr>
                       <td>
-                        <img src="assets/media/stock/ecommerce/210.gif" className="w-50px" alt="" />
+                        <img src="img/stock/ecommerce/210.gif" className="w-50px" alt="" />
                       </td>
                       <td className="ps-0">
                         <a href="../../demo39/dist/apps/ecommerce/sales/details.html" className="text-gray-800 fw-bold text-hover-primary mb-1 fs-6 text-start pe-0">Elephant 1802</a>
@@ -517,7 +517,7 @@ export default function Home() {
                     </tr>
                     <tr>
                       <td>
-                        <img src="assets/media/stock/ecommerce/215.gif" className="w-50px" alt="" />
+                        <img src="img/stock/ecommerce/215.gif" className="w-50px" alt="" />
                       </td>
                       <td className="ps-0">
                         <a href="../../demo39/dist/apps/ecommerce/sales/details.html" className="text-gray-800 fw-bold text-hover-primary mb-1 fs-6 text-start pe-0">Red Laga</a>
@@ -529,7 +529,7 @@ export default function Home() {
                     </tr>
                     <tr>
                       <td>
-                        <img src="assets/media/stock/ecommerce/209.gif" className="w-50px" alt="" />
+                        <img src="img/stock/ecommerce/209.gif" className="w-50px" alt="" />
                       </td>
                       <td className="ps-0">
                         <a href="../../demo39/dist/apps/ecommerce/sales/details.html" className="text-gray-800 fw-bold text-hover-primary mb-1 fs-6 text-start pe-0">RiseUP</a>
@@ -541,7 +541,7 @@ export default function Home() {
                     </tr>
                     <tr>
                       <td>
-                        <img src="assets/media/stock/ecommerce/214.gif" className="w-50px" alt="" />
+                        <img src="img/stock/ecommerce/214.gif" className="w-50px" alt="" />
                       </td>
                       <td className="ps-0">
                         <a href="../../demo39/dist/apps/ecommerce/sales/details.html" className="text-gray-800 fw-bold text-hover-primary mb-1 fs-6 text-start pe-0">Yellow Stone</a>
@@ -1072,7 +1072,7 @@ export default function Home() {
                 {/*begin::Item*/}
                 <div className="d-flex flex-stack">
                   {/*begin::Flag*/}
-                  <img src="assets/media/flags/united-states.svg" className="me-4 w-25px" style={{borderRadius: '4px'}} alt="" />
+                  <img src="img/flags/united-states.svg" className="me-4 w-25px" style={{borderRadius: '4px'}} alt="" />
                   {/*end::Flag*/}
                   {/*begin::Section*/}
                   <div className="d-flex flex-stack flex-row-fluid d-grid gap-2">
@@ -1118,7 +1118,7 @@ export default function Home() {
                 {/*begin::Item*/}
                 <div className="d-flex flex-stack">
                   {/*begin::Flag*/}
-                  <img src="assets/media/flags/brazil.svg" className="me-4 w-25px" style={{borderRadius: '4px'}} alt="" />
+                  <img src="img/flags/brazil.svg" className="me-4 w-25px" style={{borderRadius: '4px'}} alt="" />
                   {/*end::Flag*/}
                   {/*begin::Section*/}
                   <div className="d-flex flex-stack flex-row-fluid d-grid gap-2">
@@ -1164,7 +1164,7 @@ export default function Home() {
                 {/*begin::Item*/}
                 <div className="d-flex flex-stack">
                   {/*begin::Flag*/}
-                  <img src="assets/media/flags/turkey.svg" className="me-4 w-25px" style={{borderRadius: '4px'}} alt="" />
+                  <img src="img/flags/turkey.svg" className="me-4 w-25px" style={{borderRadius: '4px'}} alt="" />
                   {/*end::Flag*/}
                   {/*begin::Section*/}
                   <div className="d-flex flex-stack flex-row-fluid d-grid gap-2">
@@ -1210,7 +1210,7 @@ export default function Home() {
                 {/*begin::Item*/}
                 <div className="d-flex flex-stack">
                   {/*begin::Flag*/}
-                  <img src="assets/media/flags/france.svg" className="me-4 w-25px" style={{borderRadius: '4px'}} alt="" />
+                  <img src="img/flags/france.svg" className="me-4 w-25px" style={{borderRadius: '4px'}} alt="" />
                   {/*end::Flag*/}
                   {/*begin::Section*/}
                   <div className="d-flex flex-stack flex-row-fluid d-grid gap-2">
@@ -1256,7 +1256,7 @@ export default function Home() {
                 {/*begin::Item*/}
                 <div className="d-flex flex-stack">
                   {/*begin::Flag*/}
-                  <img src="assets/media/flags/india.svg" className="me-4 w-25px" style={{borderRadius: '4px'}} alt="" />
+                  <img src="img/flags/india.svg" className="me-4 w-25px" style={{borderRadius: '4px'}} alt="" />
                   {/*end::Flag*/}
                   {/*begin::Section*/}
                   <div className="d-flex flex-stack flex-row-fluid d-grid gap-2">
@@ -1302,7 +1302,7 @@ export default function Home() {
                 {/*begin::Item*/}
                 <div className="d-flex flex-stack">
                   {/*begin::Flag*/}
-                  <img src="assets/media/flags/sweden.svg" className="me-4 w-25px" style={{borderRadius: '4px'}} alt="" />
+                  <img src="img/flags/sweden.svg" className="me-4 w-25px" style={{borderRadius: '4px'}} alt="" />
                   {/*end::Flag*/}
                   {/*begin::Section*/}
                   <div className="d-flex flex-stack flex-row-fluid d-grid gap-2">
@@ -1374,7 +1374,7 @@ export default function Home() {
               {/*begin::Item*/}
               <div className="d-flex flex-stack">
                 {/*begin::Flag*/}
-                <img src="assets/media/svg/brand-logos/dribbble-icon-1.svg" className="me-4 w-30px" style={{borderRadius: '4px'}} alt="" />
+                <img src="img/svg/brand-logos/dribbble-icon-1.svg" className="me-4 w-30px" style={{borderRadius: '4px'}} alt="" />
                 {/*end::Flag*/}
                 {/*begin::Section*/}
                 <div className="d-flex align-items-center flex-stack flex-wrap flex-row-fluid d-grid gap-2">
@@ -1420,7 +1420,7 @@ export default function Home() {
               {/*begin::Item*/}
               <div className="d-flex flex-stack">
                 {/*begin::Flag*/}
-                <img src="assets/media/svg/brand-logos/linkedin-1.svg" className="me-4 w-30px" style={{borderRadius: '4px'}} alt="" />
+                <img src="img/svg/brand-logos/linkedin-1.svg" className="me-4 w-30px" style={{borderRadius: '4px'}} alt="" />
                 {/*end::Flag*/}
                 {/*begin::Section*/}
                 <div className="d-flex align-items-center flex-stack flex-wrap flex-row-fluid d-grid gap-2">
@@ -1466,7 +1466,7 @@ export default function Home() {
               {/*begin::Item*/}
               <div className="d-flex flex-stack">
                 {/*begin::Flag*/}
-                <img src="assets/media/svg/brand-logos/slack-icon.svg" className="me-4 w-30px" style={{borderRadius: '4px'}} alt="" />
+                <img src="img/svg/brand-logos/slack-icon.svg" className="me-4 w-30px" style={{borderRadius: '4px'}} alt="" />
                 {/*end::Flag*/}
                 {/*begin::Section*/}
                 <div className="d-flex align-items-center flex-stack flex-wrap flex-row-fluid d-grid gap-2">
@@ -1512,7 +1512,7 @@ export default function Home() {
               {/*begin::Item*/}
               <div className="d-flex flex-stack">
                 {/*begin::Flag*/}
-                <img src="assets/media/svg/brand-logos/youtube-3.svg" className="me-4 w-30px" style={{borderRadius: '4px'}} alt="" />
+                <img src="img/svg/brand-logos/youtube-3.svg" className="me-4 w-30px" style={{borderRadius: '4px'}} alt="" />
                 {/*end::Flag*/}
                 {/*begin::Section*/}
                 <div className="d-flex align-items-center flex-stack flex-wrap flex-row-fluid d-grid gap-2">
@@ -1558,7 +1558,7 @@ export default function Home() {
               {/*begin::Item*/}
               <div className="d-flex flex-stack">
                 {/*begin::Flag*/}
-                <img src="assets/media/svg/brand-logos/instagram-2-1.svg" className="me-4 w-30px" style={{borderRadius: '4px'}} alt="" />
+                <img src="img/svg/brand-logos/instagram-2-1.svg" className="me-4 w-30px" style={{borderRadius: '4px'}} alt="" />
                 {/*end::Flag*/}
                 {/*begin::Section*/}
                 <div className="d-flex align-items-center flex-stack flex-wrap flex-row-fluid d-grid gap-2">
@@ -1604,7 +1604,7 @@ export default function Home() {
               {/*begin::Item*/}
               <div className="d-flex flex-stack">
                 {/*begin::Flag*/}
-                <img src="assets/media/svg/brand-logos/facebook-3.svg" className="me-4 w-30px" style={{borderRadius: '4px'}} alt="" />
+                <img src="img/svg/brand-logos/facebook-3.svg" className="me-4 w-30px" style={{borderRadius: '4px'}} alt="" />
                 {/*end::Flag*/}
                 {/*begin::Section*/}
                 <div className="d-flex align-items-center flex-stack flex-wrap flex-row-fluid d-grid gap-2">
@@ -1732,7 +1732,7 @@ export default function Home() {
                           {/*begin::Switch*/}
                           <label className="form-check form-switch form-check-custom form-check-solid">
                             {/*begin::Input*/}
-                            <input className="form-check-input w-30px h-20px" type="checkbox" defaultValue={1} defaultChecked="checked" name="notifications" />
+                            <input className="form-check-input w-30px h-20px" type="checkbox" defaultValue={1} name="notifications" />
                             {/*end::Input*/}
                             {/*end::Label*/}
                             <span className="form-check-label text-muted fs-6">Recuring</span>

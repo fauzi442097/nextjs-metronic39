@@ -12,8 +12,8 @@
             },
             {
                 "id": 3,
-                "name": "Customer",
-                "url": "/customer"
+                "name": "Product",
+                "url": "/product"
             },
             {
                 "id": 4,
