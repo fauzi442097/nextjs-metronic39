@@ -16,16 +16,20 @@ import Button from '@/components/Button';
 const Customer = () => {
 
    const [showModal, setShowModal] = useState(false);
+   const [productId, setProductId] = useState('');
 
    const { data: products, isError, isLoading, error } = useQuery({
       queryKey: ['products'],
       queryFn: productService.getProducts
    });
 
-   const showProduct = async (productId: string) => {
-      // const response = await productService.getProduct(productId);
-      // console.log(response);
+  
+   if ( isError ) return <p> {error.message}</p> 
 
+
+   const showProduct = async (productId: string) => {
+      const result = await productService.getProduct(productId);
+      console.log(result);
    }
 
 
@@ -183,7 +187,7 @@ const Customer = () => {
                               <td className='text-end'> ${product.discountPercentage} </td>
                               <td className="text-end">
                                  <Dropdown>
-                                    <DropdownItem onClick={() => showProduct(product.id)}> View </DropdownItem>
+                                    <DropdownItem onClick={() => showProduct(product.id)} data-bs-toggle="modal" data-bs-target="#modal-product"> View </DropdownItem>
                                     <DropdownItem> Delete </DropdownItem>
                                  </Dropdown>
                               </td>

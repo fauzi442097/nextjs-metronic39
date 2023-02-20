@@ -5,7 +5,7 @@ const getProducts = async () => {
       const response = await API.get('products');
       return response.data.products;
    } catch ( error ) {
-      return error 
+      return Promise.reject(error)
    }
 }
 
@@ -14,7 +14,7 @@ const getProduct = async (productId: string) => {
       const response = await API.get(`products/${productId}`);
       return response.data;
    } catch ( error ) {
-      return error
+      return Promise.reject(error)
    }
 }
 

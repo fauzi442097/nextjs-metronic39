@@ -37,7 +37,7 @@ type dropdownItemProps = {
 export const DropdownItem = ({ className, children, ...props } : dropdownItemProps) => {
    return (
       <div className={`menu-item px-3 ${className || ''}`}>
-         <a href="javascript:;" className="menu-link px-3" {...props}>{children}</a>
+         <a className="menu-link px-3" {...props}>{children}</a>
       </div>
    )
 }
