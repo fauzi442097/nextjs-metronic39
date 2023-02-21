@@ -9,7 +9,6 @@ import dynamic from 'next/dynamic';
 import Modal from '@/components/Modal';
 import Button from '@/components/Button';
 
-
 // const Modal = dynamic(() => import('@/components/Modal'), { ssr: false })
 
 
@@ -22,16 +21,14 @@ const Customer = () => {
       queryKey: ['products'],
       queryFn: productService.getProducts
    });
-
   
-   if ( isError ) return <p> {error.message}</p> 
-
+   if ( isError && error instanceof Error ) return <p> { error.message }</p> 
 
    const showProduct = async (productId: string) => {
       const result = await productService.getProduct(productId);
       console.log(result);
+      $("#modal-product").modal('show');
    }
-
 
   return (
    <>
@@ -42,7 +39,6 @@ const Customer = () => {
             <a href="#" className="btn btn-flex btn-primary h-40px fs-7 fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_create_campaign">New Campaign</a>
          </PageAction>
       </PageToolbar>
-
 
       <Modal id="modal-product">
          <Modal.Header> <h5> Product </h5></Modal.Header>
@@ -55,7 +51,6 @@ const Customer = () => {
                <Button> Save changes </Button>
          </Modal.Footer>
       </Modal>
-
 
       <div id="kt_app_content" className="app-content flex-column-fluid">
          <div id="kt_app_content_container" className="app-container container-fluid">
@@ -187,7 +182,7 @@ const Customer = () => {
                               <td className='text-end'> ${product.discountPercentage} </td>
                               <td className="text-end">
                                  <Dropdown>
-                                    <DropdownItem onClick={() => showProduct(product.id)} data-bs-toggle="modal" data-bs-target="#modal-product"> View </DropdownItem>
+                                    <DropdownItem onClick={() => showProduct(product.id)}> View </DropdownItem>
                                     <DropdownItem> Delete </DropdownItem>
                                  </Dropdown>
                               </td>
