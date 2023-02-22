@@ -9,7 +9,51 @@ import dynamic from 'next/dynamic';
 import Modal from '@/components/Modal';
 import Button from '@/components/Button';
 
-// const Modal = dynamic(() => import('@/components/Modal'), { ssr: false })
+import DataTable from 'react-data-table-component';
+import CustomStyles from '@/components/Datatable/CustomStyles';
+
+
+
+const columns = [
+   {
+       name: 'Id',
+       selector: row => row.id,
+   },
+   {
+       name: 'Title',
+       selector: row => row.title,
+   },
+   {
+      name: 'Description',
+      selector: row => row.description,
+   },
+   {
+      name: 'Brand',
+      selector: row => row.brand,
+   },
+   {
+      name: 'Rating',
+      selector: row => row.rating,
+   },
+   {
+      name: 'Price',
+      selector: row => row.price,
+   },
+   {
+      name: 'Stock',
+      selector: row => row.stock,
+   },
+   {
+      name: 'Disc Pct',
+      selector: row => row.discountPercentage,
+   },
+   {
+      name: 'Category',
+      selector: row => row.category,
+   },
+];
+
+
 
 
 const Customer = () => {
@@ -29,6 +73,8 @@ const Customer = () => {
       console.log(result);
       $("#modal-product").modal('show');
    }
+
+   console.log(products);
 
   return (
    <>
@@ -149,6 +195,12 @@ const Customer = () => {
                   </div>
                </Card.Header>
                <Card.Body className="table-responsive">
+               <DataTable
+                        columns={columns}
+                        data={products}
+                        pagination
+                        customStyles={CustomStyles}
+                  />
                   <table className="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
                      <thead>
                         <tr className="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
