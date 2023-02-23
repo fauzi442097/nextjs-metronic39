@@ -1,13 +1,18 @@
-import React, {forwardRef} from 'react'
-import DataTable from 'react-data-table-component';
+import React from 'react'
+
 import CustomStyles from './CustomStyles';
 import CheckboxTable from './CheckboxTable';
+import dynamic from 'next/dynamic';
+
+const DataTable = dynamic(() => import('react-data-table-component'), {ssr: false})
+// @ts-ignore
+const DataTableExtensions = dynamic(() => import('react-data-table-component-extensions'), {ssr: false})
+
 
 type DatatableProps = {
     columns: Array<object>,
     data: Array<object>,
     pagination?: true,
-    striped?: true
     isLoading: boolean,
     [key:string]: any
 }
@@ -21,33 +26,51 @@ const CaretDownIcon = () => {
     </svg>
   )
 }
+
+const LoadingData = () => {
+  return (
+    <div className='sc-dkrFOg iSAVrt rdt_TableHeadRow'>
+      <div className='rdt_TableCol'> 1 </div>
+      <div className='rdt_TableCol'> 2 </div>
+      <div className='rdt_TableCol'> 3 </div>
+      <div className='rdt_TableCol'> 4 </div>
+      <div className='rdt_TableCol'> 5 </div>
+    </div>
+  )
+}
+
 const MyDatatable = ({
     columns,
     data,
     pagination,
-    striped,
     isLoading,
     ...props
 }: DatatableProps) => {
+
   return (
-    <DataTable
-        customStyles={CustomStyles}
+    //@ts-ignore
+    <DataTableExtensions
         columns={columns}
         data={data}
-        pagination={pagination}
-        striped={striped}
-        highlightOnHover
-        persistTableHead
-        noDataComponent={'Data tidak tersedia'}
-        defaultSortFieldId={1}
-        progressPending={isLoading}
-        progressComponent={'Processing ...'}
-        defaultSortAsc={false}
-        selectableRowsHighlight={true}
-        sortIcon={<CaretDownIcon/>}
-        selectableRowsComponent={CheckboxTable}
-        {...props}
-    />
+        print={true}
+        export={true}
+      >
+        <DataTable
+            customStyles={CustomStyles}
+            pagination={pagination}
+            highlightOnHover
+            persistTableHead
+            noDataComponent={'Data tidak tersedia'}
+            defaultSortFieldId={1}
+            progressPending={isLoading}
+            progressComponent={'Processing ...'}
+            defaultSortAsc={false}
+            sortIcon={<CaretDownIcon/>}
+            selectableRowsComponent={CheckboxTable}
+            fixedHeader
+            {...props}
+        />
+    </DataTableExtensions>
   )
 }
 

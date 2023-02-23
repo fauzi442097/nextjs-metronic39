@@ -21,46 +21,55 @@ const columns = [
    {
        name: 'Id',
        selector: row => row.id,
+       cellExport: row => row.id,
        sortable: true
    },
    {
        name: 'Title',
        selector: row => row.title,
+       cellExport: row => row.title,
        sortable: true
    },
    {
       name: 'Description',
       selector: row => row.description,
+      cellExport: row => row.description,
       sortable: true
    },
    {
       name: 'Brand',
       selector: row => row.brand,
+      cellExport: row => row.brand,
       sortable: true
    },
    {
       name: 'Rating',
       selector: row => row.rating,
+      cellExport: row => row.rating,
       sortable: true
    },
    {
       name: 'Price',
       selector: row => row.price,
+      cellExport: row => row.price,
       sortable: true
    },
    {
       name: 'Stock',
       selector: row => row.stock,
+      cellExport: row => row.stock,
       sortable: true
    },
    {
       name: 'Disc Pct',
       selector: row => row.discountPercentage,
+      cellExport: row => row.discountPercentage,
       sortable: true
    },
    {
       name: 'Category',
       selector: row => row.category,
+      cellExport: row => row.category,
       sortable: true
    },
 ];

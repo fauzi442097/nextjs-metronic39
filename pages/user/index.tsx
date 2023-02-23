@@ -35,7 +35,6 @@ type UserProps = {
    // cek jika komponen user dirender.
    console.log('User component render!');
    
- 
    return (
       <>
          { 
