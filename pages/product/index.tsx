@@ -7,9 +7,7 @@ import Card from '@/components/Card';
 import Dropdown, { DropdownItem } from '@/components/Dropdown';
 import dynamic from 'next/dynamic';
 import Button from '@/components/Button';
-
-import DataTable from 'react-data-table-component';
-import CustomStyles from '@/components/Datatable/CustomStyles';
+import MyDatatable from '@/components/Datatable/MyDatatable';
 
 
 const Modal = dynamic(() => import('@/components/Modal'), {ssr: false})
@@ -23,38 +21,47 @@ const columns = [
    {
        name: 'Id',
        selector: row => row.id,
+       sortable: true
    },
    {
        name: 'Title',
        selector: row => row.title,
+       sortable: true
    },
    {
       name: 'Description',
       selector: row => row.description,
+      sortable: true
    },
    {
       name: 'Brand',
       selector: row => row.brand,
+      sortable: true
    },
    {
       name: 'Rating',
       selector: row => row.rating,
+      sortable: true
    },
    {
       name: 'Price',
       selector: row => row.price,
+      sortable: true
    },
    {
       name: 'Stock',
       selector: row => row.stock,
+      sortable: true
    },
    {
       name: 'Disc Pct',
       selector: row => row.discountPercentage,
+      sortable: true
    },
    {
       name: 'Category',
       selector: row => row.category,
+      sortable: true
    },
 ];
 
@@ -203,13 +210,16 @@ const Customer = () => {
                   </div>
                </Card.Header>
                <Card.Body className="table-responsive">
-               {/* <DataTable
-                        columns={columns}
-                        data={products}
-                        pagination
-                        customStyles={CustomStyles}
-                  /> */}
-                  <table className="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
+               <MyDatatable
+                     columns={columns}
+                     data={products}
+                     pagination
+                     isLoading={isLoading}
+                     selectableRows
+                     selectableRowsHighlight={true}
+                  />
+
+                  {/* <table className="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
                      <thead>
                         <tr className="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                            <th className="w-10px pe-2">
@@ -250,7 +260,7 @@ const Customer = () => {
                         ))
                      }
                      </tbody>
-                  </table>
+                  </table> */}
                </Card.Body>
             </Card>
          </div>
