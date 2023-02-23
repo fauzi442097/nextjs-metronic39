@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 
 import { useQuery } from '@tanstack/react-query';
 import productService from '@/services/productService';
@@ -6,11 +6,16 @@ import PageToolbar, { PageAction, PageTitle } from '@/components/PageToolbar';
 import Card from '@/components/Card';
 import Dropdown, { DropdownItem } from '@/components/Dropdown';
 import dynamic from 'next/dynamic';
-import Modal from '@/components/Modal';
 import Button from '@/components/Button';
 
 import DataTable from 'react-data-table-component';
 import CustomStyles from '@/components/Datatable/CustomStyles';
+
+
+const Modal = dynamic(() => import('@/components/Modal'), {ssr: false})
+const ModalHeader = dynamic(() => import('@/components/Modal').then(module => module.ModalHeader), {ssr: false})
+const ModalBody = dynamic(() => import('@/components/Modal').then(module => module.ModalBody), {ssr: false})
+const ModalFooter = dynamic(() => import('@/components/Modal').then(module => module.ModalFooter), {ssr: false})
 
 
 
@@ -58,19 +63,22 @@ const columns = [
 
 const Customer = () => {
 
-   const [showModal, setShowModal] = useState(false);
-   const [productId, setProductId] = useState('');
 
+   const [product, setProduct] = useState<Object>({})
+
+   console.log('render');
+   
    const { data: products, isError, isLoading, error } = useQuery({
       queryKey: ['products'],
       queryFn: productService.getProducts
    });
-  
+
    if ( isError && error instanceof Error ) return <p> { error.message }</p> 
 
    const showProduct = async (productId: string) => {
       const result = await productService.getProduct(productId);
       console.log(result);
+      setProduct(result)
       $("#modal-product").modal('show');
    }
 
@@ -87,15 +95,15 @@ const Customer = () => {
       </PageToolbar>
 
       <Modal id="modal-product">
-         <Modal.Header> <h5> Product </h5></Modal.Header>
-         <Modal.Body> Tes </Modal.Body>
-         <Modal.Footer>
+         <ModalHeader> <h5> Product </h5></ModalHeader>
+         <ModalBody> Tes </ModalBody>
+         <ModalFooter>
                <Button.Custom
                   className="btn-light"
                   data-bs-dismiss="modal"
                   > Close </Button.Custom>
                <Button> Save changes </Button>
-         </Modal.Footer>
+         </ModalFooter>
       </Modal>
 
       <div id="kt_app_content" className="app-content flex-column-fluid">
@@ -195,12 +203,12 @@ const Customer = () => {
                   </div>
                </Card.Header>
                <Card.Body className="table-responsive">
-               <DataTable
+               {/* <DataTable
                         columns={columns}
                         data={products}
                         pagination
                         customStyles={CustomStyles}
-                  />
+                  /> */}
                   <table className="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
                      <thead>
                         <tr className="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">

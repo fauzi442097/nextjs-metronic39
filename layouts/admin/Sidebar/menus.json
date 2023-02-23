@@ -17,8 +17,8 @@
             },
             {
                 "id": 4,
-                "name": "Projects",
-                "url": "/projects"
+                "name": "User",
+                "url": "/user"
             },
             {
                 "id" : 5,

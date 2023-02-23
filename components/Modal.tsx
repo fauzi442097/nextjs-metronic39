@@ -21,7 +21,7 @@ const Modal = ({ children, className, size = 'md', ...props } : propsModal) => {
   )
 }
 
-const ModalHeader = ({ children, className, ...props } : propsModal) => {
+export const ModalHeader = ({ children, className, ...props } : propsModal) => {
     return (
         <div {...props} className={`modal-header ${className || ''}`}>
             {children}
@@ -37,7 +37,7 @@ const ModalHeader = ({ children, className, ...props } : propsModal) => {
     )
 }
 
-const ModalBody = ({ children, className, ...props } : propsModal) => {
+export const ModalBody = ({ children, className, ...props } : propsModal) => {
     return (
         <div {...props} className={`modal-body ${className || ''}`}>
             {children}
@@ -45,7 +45,7 @@ const ModalBody = ({ children, className, ...props } : propsModal) => {
     )
 }
 
-const ModalFooter = ({ children, className, ...props } : propsModal) => {
+export const ModalFooter = ({ children, className, ...props } : propsModal) => {
     return (
         <div {...props} className={`modal-footer ${className || ''}`}>
             {children}
@@ -53,9 +53,5 @@ const ModalFooter = ({ children, className, ...props } : propsModal) => {
     )
 }
 
-
-Modal.Header = ModalHeader;
-Modal.Body = ModalBody;
-Modal.Footer = ModalFooter;
 
 export default Modal
