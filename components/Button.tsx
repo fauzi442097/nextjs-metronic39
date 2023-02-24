@@ -4,7 +4,8 @@ type buttonProps = {
     children: ReactNode,
     className?: string
     type?: 'white' | 'primary' | 'light' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'dark',
-    size?: 'sm' | 'md' | 'lg' | 'xl'
+    size?: 'sm' | 'md' | 'lg' | 'xl',
+    [key:string]: any;
 }
 
 const Button = ({ children, className, type='primary', size = 'md', ...props } : buttonProps) => {

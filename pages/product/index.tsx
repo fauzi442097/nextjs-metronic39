@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react'
+import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react'
 
 import { useQuery } from '@tanstack/react-query';
 import productService from '@/services/productService';
@@ -94,7 +94,7 @@ const Customer = () => {
    const showProduct = async (productId: string) => {
       const result = await productService.getProduct(productId);
       console.log(result);
-      setProduct(result)
+      setProduct(result);
       $("#modal-product").modal('show');
    }
 
