@@ -6,6 +6,8 @@ type inputProps = {
 }
 
 const InputText = ({ className, ...props } : inputProps) => {
+
+
     return (
         <input
             type="text"
@@ -15,8 +17,22 @@ const InputText = ({ className, ...props } : inputProps) => {
     )
 }
 
+const InputPassword = ({ className, ...props } : inputProps) => {
+
+    return (
+        <input
+            type="password"
+            className={`form-control ${className || ''}`}
+             {...props}
+        />
+    )
+}
+
+
+
 const Input = {
-    Text: InputText
+    Text: InputText,
+    Password: InputPassword
 }
 
 export default Input

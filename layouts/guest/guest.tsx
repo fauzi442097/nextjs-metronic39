@@ -32,7 +32,7 @@ const GuestLayout = ({children} : Props) => {
             </div>
         </div>
     </div>
-    <Script type='text/javascript' src='/js/login.js'/>
+    {/* <Script type='text/javascript' src='/js/login.js'/> */}
     </>
   )
 }

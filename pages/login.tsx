@@ -1,15 +1,110 @@
-import React from 'react'
+import React, { useEffect, useRef, useState, memo, useCallback } from 'react'
 import type { ReactElement } from 'react'
 import type { NextPageWithLayout } from '../pages/_app'
 import GuestLayout from '@/layouts/guest/guest'
+import Input from '@/components/form/Input'
 
-import styles from '@/public/css/guest.module.css'
 
 const login: NextPageWithLayout = () => {
+
+    const formRef = useRef<HTMLFormElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
+  
+    const [username, setUsername] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [fv, setFv] = useState<any>();
+
+      
+    useEffect(() => {
+      setFv(initFormValidation());
+    },[]);
+
+    const initFormValidation = () => {
+      return FormValidation.formValidation(
+        formRef.current,
+        {
+            fields: {
+                'username': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Wajib diisi'
+                        },
+                        stringLength: {
+                          min: 3,
+                          message: 'Minimal diisi 3 karakter'
+                        }
+                    }
+                },
+                'password': {
+                  validators: {
+                    notEmpty: {
+                      message: 'Wajib diisi'
+                    },
+                    stringLength: {
+                      min: 6,
+                      message: 'Minimal diisi 6 karakter'
+                    }
+                  }
+                }
+            },
+
+            plugins: {
+                trigger: new FormValidation.plugins.Trigger(),
+                bootstrap: new FormValidation.plugins.Bootstrap5({
+                    rowSelector: '.fv-row',
+                    eleInvalidClass: '',
+                    eleValidClass: ''
+                })
+            }
+        }
+      );
+    }
+
+    const showLoading = (setLoading: boolean) => {
+      if ( buttonRef.current ) 
+        if ( setLoading ) {
+          buttonRef.current.setAttribute('data-kt-indicator', 'on');
+          buttonRef.current.disabled = true;
+        } else {
+          buttonRef.current.removeAttribute('data-kt-indicator');
+          buttonRef.current.disabled = false;
+        } 
+    }
+
+
+    const login = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      if ( fv ) {
+        fv.validate().then((status: string) => {
+          if ( status == 'Valid' ) {
+              showLoading(true);
+
+             setTimeout(function () {
+                showLoading(false);
+                // Show popup confirmation
+                Swal.fire({
+                    text: "Form has been successfully submitted!",
+                    icon: "success",
+                    buttonsStyling: false,
+                    confirmButtonText: "Ok, got it!",
+                    customClass: {
+                        confirmButton: "btn btn-primary"
+                    }
+                });
+
+                //form.submit(); // Submit form
+            }, 2000);
+          }
+        })
+      }
+    } 
+
+
+
     return (
       <div className="d-flex flex-center flex-column flex-lg-row-fluid">
         <div className={`w-lg-500px p-10`}>
-          <form className="form w-100" noValidate={true} id="kt_sign_in_form" data-kt-redirect-url="../../demo39/dist/index.html" action="#">
+          <form ref={formRef} onSubmit={login} className="form w-100" id="kt_sign_in_form">
               <div className="text-center mb-11">
                 <h1 className="text-dark fw-bolder mb-3">Login</h1>
                 <div className="text-gray-500 fw-semibold fs-6">Masukan data login</div>
@@ -35,11 +130,11 @@ const login: NextPageWithLayout = () => {
 
               <div className='row'>
                 <div className="fv-row mb-8">
-                  <input type="text" placeholder="Email" name="email" autoComplete="off" className="form-control bg-transparent" />
+                  <Input.Text name="username" maxLength="30" className="bg-transparent" value={username} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}/>
                 </div>
                 
                 <div className="fv-row mb-3">
-                  <input type="password" placeholder="Password" name="password" autoComplete="off" className="form-control bg-transparent" />
+                  <Input.Password autoComplete="off" name="password" maxLength="30" className="bg-transparent" value={password} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}/>
                 </div>
 
                 <div className="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
@@ -49,7 +144,7 @@ const login: NextPageWithLayout = () => {
                 
 
                 <div className="d-grid mb-10">
-                  <button type="submit" id="kt_sign_in_submit" className="btn btn-primary">
+                  <button type="submit" id="kt_sign_in_submit" className="btn btn-primary" ref={buttonRef}>
                       <span className="indicator-label">Login</span>
                       <span className="indicator-progress">Please wait...
                       <span className="spinner-border spinner-border-sm align-middle ms-2" /></span>
