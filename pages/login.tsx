@@ -3,6 +3,7 @@ import type { ReactElement } from 'react'
 import type { NextPageWithLayout } from '../pages/_app'
 import GuestLayout from '@/layouts/guest/guest'
 import Input from '@/components/form/Input'
+import Alert from '@/components/Alert'
 
 
 const login: NextPageWithLayout = () => {
@@ -12,6 +13,7 @@ const login: NextPageWithLayout = () => {
   
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [loginFailed, setLoginFailed] = useState<boolean>(false);
     const [fv, setFv] = useState<any>();
 
       
@@ -97,6 +99,9 @@ const login: NextPageWithLayout = () => {
 
                 //form.submit(); // Submit form
             }, 2000);
+          } else {
+            showLoading(false);
+            setLoginFailed(true);  
           }
         })
       }
@@ -115,7 +120,9 @@ const login: NextPageWithLayout = () => {
                 <div className="text-gray-500 fw-semibold fs-6">Masukan data login</div>
               </div>
 
-
+              { loginFailed && <Alert type="error" title="Login gagal" message="Username atau password salah"/>}
+              
+              
               {/* <div className="row g-3 mb-9">
                 <div className="col-md-6">
                     <a href="#" className="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100">

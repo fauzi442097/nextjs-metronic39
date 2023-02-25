@@ -4,6 +4,7 @@ import type { ReactElement, ReactNode } from 'react'
 import type { NextPage } from 'next'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import Head from 'next/head'
 
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -25,11 +26,13 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   } 
 
   return (
+    <>
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={true} />
       <Layout>
         <Component {...pageProps} />
       </Layout>
     </QueryClientProvider>
+    </>
   )
 }
