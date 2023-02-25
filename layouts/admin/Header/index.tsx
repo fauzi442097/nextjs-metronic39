@@ -7,6 +7,7 @@ const Navbar = dynamic(() => import('./navbar'), {ssr: false})
 const Header = () => {
 
    useEffect(() => {
+      //@ts-ignore
       KTToggle.createInstances();
    }, [])
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, memo, useCallback } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import type { ReactElement } from 'react'
 import type { NextPageWithLayout } from '../pages/_app'
 import GuestLayout from '@/layouts/guest/guest'
@@ -20,6 +20,7 @@ const login: NextPageWithLayout = () => {
     },[]);
 
     const initFormValidation = () => {
+      // @ts-ignore
       return FormValidation.formValidation(
         formRef.current,
         {
@@ -49,7 +50,9 @@ const login: NextPageWithLayout = () => {
             },
 
             plugins: {
+                 // @ts-ignore
                 trigger: new FormValidation.plugins.Trigger(),
+                 // @ts-ignore
                 bootstrap: new FormValidation.plugins.Bootstrap5({
                     rowSelector: '.fv-row',
                     eleInvalidClass: '',
@@ -81,7 +84,7 @@ const login: NextPageWithLayout = () => {
 
              setTimeout(function () {
                 showLoading(false);
-                // Show popup confirmation
+                 // @ts-ignore
                 Swal.fire({
                     text: "Form has been successfully submitted!",
                     icon: "success",
@@ -103,6 +106,8 @@ const login: NextPageWithLayout = () => {
 
     return (
       <div className="d-flex flex-center flex-column flex-lg-row-fluid">
+
+        
         <div className={`w-lg-500px p-10`}>
           <form ref={formRef} onSubmit={login} className="form w-100" id="kt_sign_in_form">
               <div className="text-center mb-11">

@@ -9,6 +9,7 @@ const SidebarBottom = dynamic(() => import("./sidebar-bottom"), {ssr: false });
 const Sidebar = () => {
 
    useEffect(() => {
+      //@ts-ignore
       KTMenu.createInstances(); 
    },[]);
 
