@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic';
 import Button from '@/components/Button';
 import MyDatatable from '@/components/Datatable/MyDatatable';
 import Swal from '@/components/Swal';
+import { AnimatePresence } from 'framer-motion';
 
 
 const Modal = dynamic(() => import('@/components/Modal'), {ssr: false})
@@ -126,6 +127,7 @@ const Customer = () => {
          </Modal>
 
 
+      <AnimatePresence>
       { showAlert &&  
          <Swal 
             dialogType='confirm'
@@ -136,6 +138,7 @@ const Customer = () => {
             message={'Non aktifkan user ini?'}
             processName={'Non Aktif'}
          />}
+      </AnimatePresence>
             
 
       <div id="kt_app_content" className="app-content flex-column-fluid">

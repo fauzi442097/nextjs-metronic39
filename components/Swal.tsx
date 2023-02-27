@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { motion } from "framer-motion"
 
 import styles from '../public/css/my-swal.module.css'
 import Button, {buttonProps} from './Button'
+
 
 type swalProps = {
    type: 'success' | 'warning' | 'error' | 'info' | 'primary',
@@ -22,6 +24,40 @@ const getStyleSwal = (type: string) : Array<string> => {
    return ['linear-gradient(90deg, rgba(238,246,255,1) 0%, rgba(238,246,255,1) 0%, rgba(238,246,255,1) 0%, rgba(255,255,255,1) 100%);', 'text-primary', 'bi-info-circle-fill']
 }
 
+const animateBackdrop = {
+   hidden: { 
+      opacity: 0 
+   },
+   show: {
+     opacity: 1,
+     transition: {
+       delayChildren: 0.3
+     }
+   },
+   exit: {
+      opacity: 0
+   }
+}
+
+
+const animateContainer = {
+   hidden: { 
+      opacity: 0,
+      scale: 0,
+   },
+   animate: {
+      scale: 0.5
+   },
+   show: { 
+      opacity: 1,
+      scale: 1
+   },
+   exit: {
+      opacity: 0,
+      scale: 0
+   }
+ }
+
 const Swal = ({ 
    dialogType,
    type = 'primary', 
@@ -38,18 +74,23 @@ const Swal = ({
   const swalIcon = dialogType == 'confirm' ? 'bi-question-circle-fill' : icon;
   const buttonPrimaryType: buttonProps['type'] = type == 'error' ? 'danger' : type;
 
-
+   
   return (
-    <div className={styles['swal-backdrop']}
-      style={{ 
-         display: show ? 'block' : 'none'
-       }}
+    <motion.div 
+      key={'swal'}
+      variants={animateBackdrop} 
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      className={styles['swal-backdrop']}
     >
       <div className={styles['swal-container']}>
-         <div className='bg-white rounded d-flex align-content-center w-350px'
-         style={{ 
-            background: gradientStyle
-          }}
+         <motion.div 
+            variants={animateContainer}
+            className='bg-white rounded d-flex align-content-center w-350px'
+            style={{ 
+               background: gradientStyle
+            }}
          >
             <div className='py-8 px-6'>
                <i className={`bi ${swalIcon} ${color}`} style={{ 
@@ -73,9 +114,9 @@ const Swal = ({
                   }
                </div>
             </div>
-         </div>
+         </motion.div>
       </div>
-   </div>
+   </motion.div>
   )
 }
 
