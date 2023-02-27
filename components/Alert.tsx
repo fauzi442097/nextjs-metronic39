@@ -1,10 +1,13 @@
 import React, { ReactNode } from 'react'
+import { motion } from "framer-motion"
+
 
 type AlertTypes = 'success' | 'warning' | 'error' | 'info';
 type alertProps = {
     type: AlertTypes,
     title?: string,
-    message: string
+    message: string,
+    onCloseAlert?: (close: boolean) => void
 }
 
 const getIconAlert = (alertType: string) : string => {
@@ -28,7 +31,7 @@ const getColorAlert = (alertType: string ) : Array<string> => {
     return ['linear-gradient(90deg, rgba(238,246,255,1) 0%, rgba(238,246,255,1) 0%, rgba(255,255,255,1) 100%)', 'bg-primary', 'text-primary']
 }
 
-const Alert = ({ type, title, message } : alertProps ) => {
+const Alert = ({ type, title, message, onCloseAlert } : alertProps ) => {
     const alertType: string | undefined = !type ? 'primary' : type;
     const alertTitle: string  = title || getTitleAlert(title, alertType);
     const alertIcon: string = getIconAlert(alertType);
@@ -37,7 +40,12 @@ const Alert = ({ type, title, message } : alertProps ) => {
     console.log('alert rendered')
 
     return (
-        <div style={{ 
+        <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0 }}
+            style={{ 
             background: gradientColor,
             boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
            }}className={`alert alert-dismissible bg-white d-flex flex-column align-items-start gap-4 flex-sm-row p-5 mb-10`}>
@@ -49,10 +57,10 @@ const Alert = ({ type, title, message } : alertProps ) => {
                   <span>{message}</span>
               </div>
       
-              <button type="button" className="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+              <button type="button" onClick={() => onCloseAlert} className="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
                   <i className="bi bi-x fs-1 text-secondary"></i>
               </button>
-          </div>
+          </motion.div>
     )
 }
 

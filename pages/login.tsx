@@ -4,6 +4,7 @@ import type { NextPageWithLayout } from '../pages/_app'
 import GuestLayout from '@/layouts/guest/guest'
 import Input from '@/components/form/Input'
 import Alert from '@/components/Alert'
+import { AnimatePresence } from 'framer-motion'
 
 
 const login: NextPageWithLayout = () => {
@@ -15,6 +16,10 @@ const login: NextPageWithLayout = () => {
     const [password, setPassword] = useState<string>('');
     const [loginFailed, setLoginFailed] = useState<boolean>(false);
     const [fv, setFv] = useState<any>();
+    const [showAlert, setShowAlert] = useState<boolean>(false);
+
+    console.log('render login');
+    console.log(showAlert);
 
       
     useEffect(() => {
@@ -86,19 +91,20 @@ const login: NextPageWithLayout = () => {
 
              setTimeout(function () {
                 showLoading(false);
+                setShowAlert(true);
                  // @ts-ignore
-                Swal.fire({
-                    text: "Form has been successfully submitted!",
-                    icon: "success",
-                    buttonsStyling: false,
-                    confirmButtonText: "Ok, got it!",
-                    customClass: {
-                        confirmButton: "btn btn-primary"
-                    }
-                });
+                // Swal.fire({
+                //     text: "Form has been successfully submitted!",
+                //     icon: "success",
+                //     buttonsStyling: false,
+                //     confirmButtonText: "Ok, got it!",
+                //     customClass: {
+                //         confirmButton: "btn btn-primary"
+                //     }
+                // });
 
                 //form.submit(); // Submit form
-            }, 2000);
+            }, 1000);
           } else {
             showLoading(false);
             setLoginFailed(true);  
@@ -120,7 +126,10 @@ const login: NextPageWithLayout = () => {
                 <div className="text-gray-500 fw-semibold fs-6">Masukan data login</div>
               </div>
 
-              { loginFailed && <Alert type="error" title="Login gagal" message="Username atau password salah"/>}
+
+              <AnimatePresence>
+                { showAlert && <Alert onCloseAlert={() => setShowAlert(false)} type="error" title="Login gagal" message="Username atau password salah"/>}
+              </AnimatePresence>
               
               
               {/* <div className="row g-3 mb-9">
