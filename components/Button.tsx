@@ -1,6 +1,6 @@
 import React, {ReactNode} from 'react'
 
-type buttonProps = {
+export type buttonProps = {
     children: ReactNode,
     className?: string
     type?: 'white' | 'primary' | 'light' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'dark',

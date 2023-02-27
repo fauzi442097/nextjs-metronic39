@@ -126,7 +126,16 @@ const Customer = () => {
          </Modal>
 
 
-      { showAlert &&  <Swal showAlert={showAlert}/>}
+      { showAlert &&  
+         <Swal 
+            dialogType='confirm'
+            type='warning'
+            onProcess={() => alert('te')} 
+            show={showAlert} 
+            setShow={setShowAlert}
+            message={'Non aktifkan user ini?'}
+            processName={'Non Aktif'}
+         />}
             
 
       <div id="kt_app_content" className="app-content flex-column-fluid">
