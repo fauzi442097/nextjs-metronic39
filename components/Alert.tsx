@@ -7,7 +7,7 @@ type alertProps = {
     type: AlertTypes,
     title?: string,
     message: string,
-    onCloseAlert?: (close: boolean) => void
+    onCloseAlert?: () => void
 }
 
 const getIconAlert = (alertType: string) : string => {
@@ -46,8 +46,8 @@ const Alert = ({ type, title, message, onCloseAlert } : alertProps ) => {
             transition={{ duration: 0.2 }}
             exit={{ opacity: 0 }}
             style={{ 
-            background: gradientColor,
-            boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
+                background: gradientColor,
+                boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
            }}className={`alert alert-dismissible bg-white d-flex flex-column align-items-start gap-4 flex-sm-row p-5 mb-10`}>
               <div className={`${bgColor} d-flex rounded-circle`} style={{ borderRadius: '7px' }}>
                 <i style={{ fontSize: '2rem' }}className={`bi ${alertIcon} text-white`}></i>
@@ -57,7 +57,7 @@ const Alert = ({ type, title, message, onCloseAlert } : alertProps ) => {
                   <span>{message}</span>
               </div>
       
-              <button type="button" onClick={() => onCloseAlert} className="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+              <button type="button" onClick={onCloseAlert} className="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto">
                   <i className="bi bi-x fs-1 text-secondary"></i>
               </button>
           </motion.div>

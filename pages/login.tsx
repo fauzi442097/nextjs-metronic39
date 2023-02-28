@@ -5,6 +5,7 @@ import GuestLayout from '@/layouts/guest/guest'
 import Input from '@/components/form/Input'
 import Alert from '@/components/Alert'
 import { AnimatePresence } from 'framer-motion'
+import Swal from '@/components/Swal'
 
 
 const login: NextPageWithLayout = () => {
@@ -17,10 +18,6 @@ const login: NextPageWithLayout = () => {
     const [loginFailed, setLoginFailed] = useState<boolean>(false);
     const [fv, setFv] = useState<any>();
     const [showAlert, setShowAlert] = useState<boolean>(false);
-
-    console.log('render login');
-    console.log(showAlert);
-
       
     useEffect(() => {
       setFv(initFormValidation());

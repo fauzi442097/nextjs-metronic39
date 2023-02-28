@@ -48,29 +48,33 @@ const MyDatatable = ({
 }: DatatableProps) => {
 
   return (
-    //@ts-ignore
-    <DataTableExtensions
-        columns={columns}
-        data={data}
-        print={true}
-        export={true}
-      >
-        <DataTable
-            customStyles={CustomStyles}
-            pagination={pagination}
-            highlightOnHover
-            persistTableHead
-            noDataComponent={'Data tidak tersedia'}
-            defaultSortFieldId={1}
-            progressPending={isLoading}
-            progressComponent={'Processing ...'}
-            defaultSortAsc={false}
-            sortIcon={<CaretDownIcon/>}
-            selectableRowsComponent={CheckboxTable}
-            fixedHeader
-            {...props}
-        />
-    </DataTableExtensions>
+    <div className='position-relative'>
+      {/* @ts-ignore */}
+      <DataTableExtensions
+          columns={columns}
+          data={data}
+          print={true}
+          export={true}
+          filterPlaceholder={'Cari produk'}
+        >
+          <DataTable
+              customStyles={CustomStyles}
+              pagination={pagination}
+              highlightOnHover
+              persistTableHead
+              noDataComponent={'Data tidak tersedia'}
+              defaultSortFieldId={1}
+              progressPending={isLoading}
+              progressComponent={'Processing ...'}
+              defaultSortAsc={false}
+              sortIcon={<CaretDownIcon/>}
+              //@ts-ignore
+              selectableRowsComponent={CheckboxTable}
+              fixedHeader
+              {...props}
+          />
+      </DataTableExtensions>
+    </div>
   )
 }
 

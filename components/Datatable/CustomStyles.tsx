@@ -2,7 +2,7 @@ const CustomStyles = {
     table: {
       style: {
         color: 'red',
-        backgroundColor: '#000',
+        backgroundColor: '#fff',
       },
     },
     tableWrapper: {
@@ -20,7 +20,7 @@ const CustomStyles = {
     headCells: {
       style: {
         background: '#F9F9F9',
-        color: '#3E97FF'
+        color: '#3E97FF',
       },
     },
     head: {
@@ -29,6 +29,7 @@ const CustomStyles = {
           fontSize: '.95rem',
           fontWeight: 600,
           textTransform: 'uppercase',
+          marginTop: '1rem'
       },
     },
     headRow: {
@@ -50,6 +51,7 @@ const CustomStyles = {
         transitionDuration: '125ms',
         transitionTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)',
         willChange: 'transform',
+        position: 'absolute'
       },
       activeStyle: {
         transform: 'translate3d(0, 0, 0)',
