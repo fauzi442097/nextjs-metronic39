@@ -21,7 +21,7 @@ const ModalFooter = dynamic(() => import('@/components/Modal').then(module => mo
 
 
 
-const columns: TableColumn[] = [
+const columns = [
    {
        name: 'Id',
        selector: row => row.id,
