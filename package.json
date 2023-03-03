@@ -19,6 +19,7 @@
     "framer-motion": "^10.0.1",
     "lodash": "^4.17.21",
     "next": "13.1.6",
+    "nextjs-progressbar": "^0.0.16",
     "react": "18.2.0",
     "react-data-table-component": "^7.5.3",
     "react-data-table-component-extensions": "^1.6.0",

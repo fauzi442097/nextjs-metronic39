@@ -11,6 +11,8 @@ const Sidebar = () => {
    useEffect(() => {
       //@ts-ignore
       KTMenu.createInstances(); 
+      //@ts-ignore
+      KTDrawer.createInstances(); 
    },[]);
 
   return (

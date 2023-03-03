@@ -18,7 +18,19 @@ export default function Document() {
         <link rel="stylesheet" href="/css/datatables-extensions.css" />
       </Head>
       
-      <body id="kt_app_body" data-kt-app-header-fixed="true" data-kt-app-header-fixed-mobile="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-aside-enabled="true" data-kt-app-aside-fixed="true" data-kt-app-aside-push-toolbar="true" data-kt-app-aside-push-footer="true" className="app-default">
+      <body id="kt_app_body" 
+          data-kt-app-header-fixed="true" 
+          data-kt-app-header-fixed-mobile="true" 
+          data-kt-app-sidebar-enabled="true" 
+          data-kt-app-sidebar-fixed="true" 
+          data-kt-app-sidebar-hoverable="true" 
+          data-kt-app-sidebar-push-toolbar="true" 
+          data-kt-app-sidebar-push-footer="true" 
+          data-kt-app-aside-enabled="true"
+          data-kt-app-aside-fixed="true" 
+          data-kt-app-aside-push-toolbar="true" 
+          data-kt-app-aside-push-footer="true" 
+          className="app-default">
         <Main />
         <script src="/js/plugins.bundle.js"></script>
         <script src="/js/scripts.bundle.js"></script>

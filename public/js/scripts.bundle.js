@@ -7286,7 +7286,7 @@ var KTComponents = function () {
         init: function () {
             KTApp.init();
 			KTDrawer.init();
-			KTMenu.init();
+            KTMenu.init();
 			KTScroll.init();
 			KTSticky.init();
 			KTSwapper.init();

@@ -8,7 +8,7 @@ interface Props {
 
 const Header = dynamic(() => import("./Header"), {ssr: false });
 const Sidebar = dynamic(() => import("./Sidebar"), { ssr: false });
-const Footer = dynamic(() => import("./Sidebar"), {ssr: false,});
+// const Footer = dynamic(() => import("./Footer"), {ssr: false,});
 
 const setThemeMode = () => {
    var defaultThemeMode = "light"; 
@@ -29,7 +29,7 @@ const index = ({children} : Props) => {
             <Sidebar/>
             <div className="app-main flex-column flex-row-fluid" id="kt_app_main">
                {children}
-               <Footer/>
+               {/* <Footer/> */}
             </div>
          </div>
       </div>
