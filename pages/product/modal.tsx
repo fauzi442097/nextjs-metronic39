@@ -4,6 +4,8 @@ import React, { useEffect, useReducer, useRef, useState } from 'react'
 import dynamic from 'next/dynamic';
 import Input from '@/components/form/Input';
 import Modal, { ModalBody, ModalFooter, ModalHeader } from '@/components/Modal';
+import { productInitialState, productReducer } from '@/hooks/productReducer';
+import { FORM_REDUCER_ACTIONS } from '@/utils/enums/FormActions';
 
 
 // const Modal = dynamic(() => import('../../components/Modal'), )
@@ -11,24 +13,22 @@ import Modal, { ModalBody, ModalFooter, ModalHeader } from '@/components/Modal';
 // const ModalBody = dynamic(() => import('../../components/Modal').then(module => module.ModalBody), {ssr: false})
 // const ModalFooter = dynamic(() => import('../../components/Modal').then(module => module.ModalFooter), {ssr: false})
 
-const formReducer = (state, event) => {
-   return {
-      ...state,
-      [event?.target.name] : event?.target.value
-   }
-}
-
 const ModalProduct = () => {
 
   console.log('modal product rendered');
 
   const formRef = useRef<HTMLFormElement>(null);
-  const [formData, setFormData] = useReducer(formReducer, {});
+  const [state, dispatch] = useReducer(productReducer, productInitialState);
   const [fv, setFv] = useState<any>();
 
   useEffect(() => {
    setFv(initFormValidation());
  },[]);
+
+ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  
+ }
+
 
  const initFormValidation = () => {
    // @ts-ignore
@@ -57,6 +57,13 @@ const ModalProduct = () => {
                    message: 'Minimal diisi 6 karakter'
                  }
                }
+             },
+             'brand' : {
+               validators: {
+                  notEmpty: {
+                     message: 'Wajib diisi'
+                  }
+               }
              }
          },
 
@@ -75,14 +82,13 @@ const ModalProduct = () => {
  }
 
 
-  const handleSubmit = () => {
-   event?.preventDefault();
-   console.log(fv);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+   e.preventDefault();
    if ( fv ) {
       fv.validate().then((status: string) => {
          console.log({status});
          if ( status == 'Valid' ) {
-            console.log(formData);
+            console.log(state);
          } else {
             alert('invalid');
          }
@@ -98,15 +104,15 @@ const ModalProduct = () => {
                <div className='row'>
                   <div className='form-group mb-8 fv-row'>
                      <label className='fs-6 fw-semibold mb-2'> Title </label>
-                     <Input.Text name="title" id="title" defaultValue="" onChange={setFormData}/> 
+                     <Input.Text name="title" id="title" defaultValue={state.title} onChange={handleChange}/> 
                   </div>
                   <div className='form-group mb-8 fv-row'>
                      <label className='fs-6 fw-semibold mb-2'> Description </label>
-                     <textarea className='form-control' defaultValue="" onChange={setFormData} rows={3} id="description" name='description' />
+                     <textarea className='form-control' defaultValue={state.description} onChange={handleChange} rows={3} id="description" name='description' />
                   </div>
                   <div className='form-group mb-8 fv-row'>
                      <label className='fs-6 fw-semibold mb-2'> Brand </label>
-                     <Input.Text name="brand" defaultValue="" onChange={setFormData} id="brand"/> 
+                     <Input.Text name="brand" defaultValue={state.brand} onChange={handleChange} id="brand"/> 
                   </div>
                </div>
             </ModalBody>
