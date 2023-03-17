@@ -6,7 +6,7 @@
    right: 0;
    background: #9796967a;
    backdrop-filter: blur(4px);
-   z-index: 999;
+   z-index: 9999999;
 }
 
 .swal-container {

@@ -3,51 +3,56 @@ import React, {ReactNode} from 'react'
 export type buttonProps = {
     children: ReactNode,
     className?: string
-    type?: 'white' | 'primary' | 'light' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'dark',
+    variant?: 'white' | 'primary' | 'light' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'dark',
     size?: 'sm' | 'md' | 'lg' | 'xl',
     [key:string]: any;
 }
 
-const Button = ({ children, className, type='primary', size = 'md', ...props } : buttonProps) => {
+const Button = ({ children, className, variant='primary', size = 'md', ...props } : buttonProps) => {
   return (
     <button 
-        className={`btn btn-${size} btn-${type} ${className || ''}`} {...props}>
+        {...props}
+        className={`btn btn-${size} btn-${variant} ${className || ''}`}>
         {children}
     </button>
   )
 }
 
-const ButtonLight = ({ children, className, type='primary', size = 'md', ...props } : buttonProps) => {
+const ButtonLight = ({ children, className, variant='primary', size = 'md', ...props } : buttonProps) => {
     return (
         <button 
-            className={`btn btn-${size} btn-light-${type} ${className || ''}`} {...props}>
+            {...props}
+            className={`btn btn-${size} btn-light-${variant} ${className || ''}`}>
             {children}
         </button>
     )
 }
 
-const ButtonIcon = ({ children, className, type='primary', size = 'md', ...props } : buttonProps) => {
+const ButtonIcon = ({ children, className, variant='primary', size = 'md', ...props } : buttonProps) => {
   return (
     <button 
-        className={`btn btn-${size} btn-icon btn-${type} ${className || ''}`} {...props}>
+        {...props}
+        className={`btn btn-${size} btn-icon btn-${variant} ${className || ''}`}>
         {children}
     </button>
   )
 }
 
-const ButtonOutline = ({ children, className, type='primary', size = 'md', ...props } : buttonProps) => {
+const ButtonOutline = ({ children, className, variant='primary', size = 'md', ...props } : buttonProps) => {
   return (
     <button 
-        className={`btn btn-outline btn-${size} btn-outline-${type} ${className || ''}`} {...props}>
+        {...props}
+        className={`btn btn-outline btn-${size} btn-outline-${variant} ${className || ''}`}>
         {children}
     </button>
   )
 }
 
-const ButtonCustom = ({ children, className, type='primary', size = 'md', ...props } : buttonProps) => {
+const ButtonCustom = ({ children, className, variant='primary', size = 'md', ...props } : buttonProps) => {
   return (
     <button 
-        className={`btn btn-${size} ${className || ''}`} {...props}>
+        {...props}
+        className={`btn btn-${size} ${className || ''}`}>
         {children}
     </button>
   )

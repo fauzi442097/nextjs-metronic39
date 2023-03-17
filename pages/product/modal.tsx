@@ -1,131 +1,50 @@
 
 import Button from '@/components/Button'
-import React, { useEffect, useReducer, useRef, useState } from 'react'
+import React, { useEffect, useReducer, useRef, useState, forwardRef } from 'react'
 import dynamic from 'next/dynamic';
-import Input from '@/components/form/Input';
+import Input from '@/components/Form/Input';
 import Modal, { ModalBody, ModalFooter, ModalHeader } from '@/components/Modal';
-import { productInitialState, productReducer } from '@/hooks/productReducer';
-import { FORM_REDUCER_ACTIONS } from '@/utils/enums/FormActions';
+import { formProduct } from '@/hooks/productReducer';
 
 
-// const Modal = dynamic(() => import('../../components/Modal'), )
-// const ModalHeader = dynamic(() => import('../../components/Modal').then(module => module.ModalHeader), {ssr: false})
-// const ModalBody = dynamic(() => import('../../components/Modal').then(module => module.ModalBody), {ssr: false})
-// const ModalFooter = dynamic(() => import('../../components/Modal').then(module => module.ModalFooter), {ssr: false})
+interface IModalProduct {
+   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void,
+   handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void,
+   form: formProduct
+}
 
-const ModalProduct = () => {
-
-  console.log('modal product rendered');
-
-  const formRef = useRef<HTMLFormElement>(null);
-  const [state, dispatch] = useReducer(productReducer, productInitialState);
-  const [fv, setFv] = useState<any>();
-
-  useEffect(() => {
-   setFv(initFormValidation());
- },[]);
-
- const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  
- }
-
-
- const initFormValidation = () => {
-   // @ts-ignore
-   return FormValidation.formValidation(
-     formRef.current,
-     {
-         fields: {
-             'title': {
-                 validators: {
-                     notEmpty: {
-                         message: 'Wajib diisi'
-                     },
-                     stringLength: {
-                       min: 3,
-                       message: 'Minimal diisi 3 karakter'
-                     }
-                 }
-             },
-             'description': {
-               validators: {
-                 notEmpty: {
-                   message: 'Wajib diisi'
-                 },
-                 stringLength: {
-                   min: 6,
-                   message: 'Minimal diisi 6 karakter'
-                 }
-               }
-             },
-             'brand' : {
-               validators: {
-                  notEmpty: {
-                     message: 'Wajib diisi'
-                  }
-               }
-             }
-         },
-
-         plugins: {
-              // @ts-ignore
-             trigger: new FormValidation.plugins.Trigger(),
-              // @ts-ignore
-             bootstrap: new FormValidation.plugins.Bootstrap5({
-                 rowSelector: '.fv-row',
-                 eleInvalidClass: '',
-                 eleValidClass: ''
-             })
-         }
-     }
-   );
- }
-
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-   e.preventDefault();
-   if ( fv ) {
-      fv.validate().then((status: string) => {
-         console.log({status});
-         if ( status == 'Valid' ) {
-            console.log(state);
-         } else {
-            alert('invalid');
-         }
-      })
-   }
-  }
-
+const ModalProduct = forwardRef<HTMLFormElement, IModalProduct>(({ handleSubmit, handleChange, form }, ref) => {
   return (
    <Modal id="modal-product">
       <ModalHeader> <h4 id="title-modal-product"> Product </h4> </ModalHeader>
-         <form ref={formRef} onSubmit={handleSubmit}>
+         <form ref={ref} onSubmit={handleSubmit} id="form-product">
             <ModalBody> 
                <div className='row'>
                   <div className='form-group mb-8 fv-row'>
                      <label className='fs-6 fw-semibold mb-2'> Title </label>
-                     <Input.Text name="title" id="title" defaultValue={state.title} onChange={handleChange}/> 
+                     <Input.Text name="title" id="title" onChange={handleChange} value={form.title}/> 
                   </div>
                   <div className='form-group mb-8 fv-row'>
                      <label className='fs-6 fw-semibold mb-2'> Description </label>
-                     <textarea className='form-control' defaultValue={state.description} onChange={handleChange} rows={3} id="description" name='description' />
+                     <textarea className='form-control' onChange={handleChange} value={form.description} rows={3} id="description" name='description' />
                   </div>
                   <div className='form-group mb-8 fv-row'>
                      <label className='fs-6 fw-semibold mb-2'> Brand </label>
-                     <Input.Text name="brand" defaultValue={state.brand} onChange={handleChange} id="brand"/> 
+                     <Input.Text name="brand" onChange={handleChange} value={form.brand} id="brand"/> 
                   </div>
                </div>
             </ModalBody>
             <ModalFooter>
                   <Button.Custom
+                     type="button"
                      className="btn-light"
                      data-bs-dismiss="modal"
                      > Close </Button.Custom>
-                  <Button> Save changes </Button>
+                  <Button type="submit"> Save changes </Button>
             </ModalFooter>
       </form>
    </Modal>
   )
-}
+})
 
 export default ModalProduct

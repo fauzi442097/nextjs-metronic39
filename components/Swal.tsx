@@ -10,8 +10,7 @@ type swalProps = {
    dialogType: 'alert' | 'confirm',
    title?: string,
    message?: string,
-   show: boolean,
-   setShow: (show: boolean) => void,
+   onClose: (show: boolean) => void,
    onProcess?: () => void,
    processName?: string
 }
@@ -22,6 +21,17 @@ const getStyleSwal = (type: string) : Array<string> => {
    if ( type == 'success') return ['linear-gradient(90deg, rgba(232,255,243,1) 0%, rgba(232,255,243,1) 0%, rgba(232,255,243,1) 0%, rgba(255,255,255,1) 100%)', 'text-success', 'bi-check-circle-fill'];
    if ( type == 'info') return ['linear-gradient(90deg, rgba(248,245,255,1) 0%, rgba(248,245,255,1) 0%, rgba(248,245,255,1) 0%, rgba(255,255,255,1) 100%)', 'text-info', 'bi-info-circle-fill'];
    return ['linear-gradient(90deg, rgba(238,246,255,1) 0%, rgba(238,246,255,1) 0%, rgba(238,246,255,1) 0%, rgba(255,255,255,1) 100%);', 'text-primary', 'bi-info-circle-fill']
+}
+
+const getTitleSwal = (title: string | undefined, type: string) : string => {
+   if ( !title) {
+      if ( type == 'warning' ) return 'Peringatan';
+      if ( type == 'error' ) return 'Error';
+      if ( type == 'info' ) return 'Info';
+      if ( type == 'success' ) return 'success';
+   } else {
+      return title;
+   }
 }
 
 const animateBackdrop = {
@@ -38,7 +48,6 @@ const animateBackdrop = {
       opacity: 0
    }
 }
-
 
 const animateContainer = {
    hidden: { 
@@ -63,18 +72,16 @@ const Swal = ({
    type = 'primary', 
    title,
    message, 
-   show, 
-   setShow, 
+   onClose,
    onProcess,
    processName 
 } : swalProps ) => {
 
-
   const [gradientStyle, color, icon]= getStyleSwal(type);
+  const swalTitle = getTitleSwal(title, type);
   const swalIcon = dialogType == 'confirm' ? 'bi-question-circle-fill' : icon;
   const buttonPrimaryType: buttonProps['type'] = type == 'error' ? 'danger' : type;
-
-   
+    
   return (
     <motion.div 
       key={'swal'}
@@ -99,17 +106,17 @@ const Swal = ({
             </div>
             <div className='d-flex flex-column justify-content-center py-8 pe-8 w-100'>
                <div>
-                  <h3> {dialogType == 'confirm' ? 'Konfirmasi' : title} </h3>
+                  <h3> {dialogType == 'confirm' ? 'Konfirmasi' : swalTitle} </h3>
                   <p className='fs-6'> {message} </p>
                </div>
                <div className='d-flex gap-4 text-right mt-4 justify-content-end'>
                   { dialogType == 'confirm' ? (
                         <>
-                           <Button.Custom onClick={() => setShow(false)} size="sm" className='border-1 border border-secondary bg-hover-secondary btn-hover-text-white'> Batal </Button.Custom> 
-                           <Button onClick={onProcess} size="sm" type={buttonPrimaryType} className='fw-bold'> {processName} </Button>
+                           <Button.Custom onClick={onClose} size="sm" className='border-1 border border-secondary bg-hover-secondary btn-hover-text-white'> Batal </Button.Custom> 
+                           <Button onClick={onProcess} size="sm" variant={buttonPrimaryType} className='fw-bold'> {processName} </Button>
                         </>
                      ) : (
-                        <Button onClick={() => setShow(false)} size="sm" type={buttonPrimaryType} className='fw-bold'> Tutup </Button>
+                        <Button onClick={onClose} size="sm" variant={buttonPrimaryType} className='fw-bold'> Tutup </Button>
                      )
                   }
                </div>

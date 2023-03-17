@@ -7,9 +7,7 @@ type propsModal = {
     [key:string]: any;
 }
 
-
 const Modal = ({ children, className, size = 'md', ...props } : propsModal) => {
-    console.log('modal rendered');
   return (
     <div className={`modal fade ${className || ''}`} tabIndex={-1} {...props}>
         <div className={`modal-dialog modal-${size}`}>
@@ -18,12 +16,10 @@ const Modal = ({ children, className, size = 'md', ...props } : propsModal) => {
             </div>
         </div>
     </div>
-
   )
 }
 
 export const ModalHeader = ({ children, className, ...props } : propsModal) => {
-    console.log('modal header rendered');
     return (
         <div {...props} className={`modal-header ${className || ''}`}>
             {children}
@@ -40,7 +36,6 @@ export const ModalHeader = ({ children, className, ...props } : propsModal) => {
 }
 
 export const ModalBody = ({ children, className, ...props } : propsModal) => {
-    console.log('modal body rendered');
     return (
         <div {...props} className={`modal-body ${className || ''}`}>
             {children}
@@ -49,7 +44,6 @@ export const ModalBody = ({ children, className, ...props } : propsModal) => {
 }
 
 export const ModalFooter = ({ children, className, ...props } : propsModal) => {
-    console.log('modal footer');
     return (
         <div {...props} className={`modal-footer ${className || ''}`}>
             {children}

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { motion } from "framer-motion"
 
 
@@ -36,8 +36,6 @@ const Alert = ({ type, title, message, onCloseAlert } : alertProps ) => {
     const alertTitle: string  = title || getTitleAlert(title, alertType);
     const alertIcon: string = getIconAlert(alertType);
     const [gradientColor, bgColor, textColor ] = getColorAlert(alertType);
-
-    console.log('alert rendered')
 
     return (
         <motion.div 
