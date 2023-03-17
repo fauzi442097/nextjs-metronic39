@@ -39,8 +39,12 @@ const ModalProduct = forwardRef<HTMLFormElement, IModalProduct>(({ handleSubmit,
                      type="button"
                      className="btn-light"
                      data-bs-dismiss="modal"
-                     > Close </Button.Custom>
-                  <Button type="submit"> Save changes </Button>
+                     > Tutup </Button.Custom>
+                  <Button type="submit" id="btn-store-product"> 
+                     <span className="indicator-label">Simpan</span>
+                     <span className="indicator-progress">Processing...
+                     <span className="spinner-border spinner-border-sm align-middle ms-2" /></span>
+                  </Button>
             </ModalFooter>
       </form>
    </Modal>

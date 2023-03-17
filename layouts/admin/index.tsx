@@ -1,6 +1,9 @@
 
 import React, {ReactNode, useEffect, ReactElement} from 'react'
 import dynamic from 'next/dynamic';
+import { Toaster } from 'react-hot-toast'
+import ToastContainer from '@/components/MyToast/ToastContainer';
+import { useToaster } from '@/hooks/toaster';
 
 interface Props {
    children: ReactNode
@@ -17,12 +20,23 @@ const setThemeMode = () => {
 
 const index = ({children} : Props) => {
 
+   
+
    useEffect(() => {
       setThemeMode();
    }, []);
 
   return (
    <div className="d-flex flex-column flex-root app-root" id="kt_app_root">
+      <ToastContainer />
+
+      {/* <Toaster
+         position="top-right"
+         reverseOrder={true}
+      /> */}
+
+      
+
       <div className="app-page flex-column flex-column-fluid" id="kt_app_page">
          <Header/>
          <div className="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">

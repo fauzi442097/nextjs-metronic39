@@ -14,6 +14,8 @@ import ModalProduct from './modal';
 import { initialProductState, productReducer } from '@/hooks/productReducer';
 import { FORM_REDUCER_ACTIONS } from '@/utils/enums/FormActions';
 import { useFormValidation } from '@/hooks/useFormValidation';
+import { useToaster } from '@/hooks/toaster';
+// import toast, { Toaster, useToaster } from 'react-hot-toast';
 
 
 let validationRules = {
@@ -48,7 +50,6 @@ let validationRules = {
    }
 }
 
-
 const Customer = () => {
 
    const [showAlert, setShowAlert] = useState<boolean>(false)
@@ -56,6 +57,9 @@ const Customer = () => {
    const [state, dispatch] = useReducer(productReducer, initialProductState);
    const fv = useFormValidation(formRef, validationRules);
    const { form, isFormValid } = state;
+
+   const myToast = useToaster();
+
 
    const columns = [
       {
@@ -184,9 +188,20 @@ const Customer = () => {
       if ( fv ) {
          fv.validate().then((status: string) => {
             if ( status == 'Invalid' ) {
-               setFormStatus('invalid');
+               // setFormStatus('invalid');
+               myToast.warning("Lengkapi data terlebih dahulu");
             } else {
                // FORM VALID
+               $("#btn-store-product").attr('disabled', 'disabled');
+               $("#btn-store-product").attr('data-kt-indicator', 'on');
+
+
+               setTimeout(() => {
+                  $("#btn-store-product").removeAttr('disabled');
+                  $("#btn-store-product").removeAttr('data-kt-indicator');
+                  myToast.success("Data berhasil disimpan");
+               }, 5000);
+
                console.log({form: state.form});
             }
          })
