@@ -6,7 +6,7 @@ import PageToolbar, { PageAction, PageTitle } from '@/components/PageToolbar';
 import Card from '@/components/Card';
 import Dropdown, { DropdownItem } from '@/components/Dropdown';
 import Button from '@/components/Button';
-import MyDatatable from '@/components/Datatable/MyDatatable';
+import MyDatatable from '@/components/datatable/MyDatatable';
 import Swal from '@/components/Swal';
 import { AnimatePresence } from 'framer-motion';
 import { TableColumn } from 'react-data-table-component';
@@ -14,9 +14,8 @@ import ModalProduct from './modal';
 import { initialProductState, productReducer } from '@/hooks/productReducer';
 import { FORM_REDUCER_ACTIONS } from '@/utils/enums/FormActions';
 import { useFormValidation } from '@/hooks/useFormValidation';
-import { useToaster } from '@/hooks/toaster';
-// import toast, { Toaster, useToaster } from 'react-hot-toast';
-
+import { useMyAlert } from '@/hooks/useMyAlert';
+import { useMyToast } from '@/hooks/useMyToast';
 
 let validationRules = {
    'title': {
@@ -50,16 +49,36 @@ let validationRules = {
    }
 }
 
+
 const Customer = () => {
 
-   const [showAlert, setShowAlert] = useState<boolean>(false)
+   const myAlert = useMyAlert();
+   const myToast = useMyToast();
+
    const formRef = useRef<HTMLFormElement>(null);
    const [state, dispatch] = useReducer(productReducer, initialProductState);
    const fv = useFormValidation(formRef, validationRules);
    const { form, isFormValid } = state;
 
-   const myToast = useToaster();
+   
 
+
+   const setActive = () => {
+      myAlert.confirm({
+         type: 'warning',
+         title: 'Konfirmasi',
+         message: 'Apakah anda yakin akan menghapus data user ini?',
+         labelSubmit: 'Non aktif',
+         onSubmit: () => {
+            console.log('submit')
+            alert('submit');
+         },
+         labelCancel: 'Batal',
+         onCancel: () => {
+            console.log('cancel')
+         },
+      });   
+   }
 
    const columns = [
       {
@@ -133,7 +152,6 @@ const Customer = () => {
       }
    ];
 
-
    const { data: products, isError, isLoading, error } = useQuery({
       queryKey: ['products'],
       queryFn: productService.getProducts
@@ -146,7 +164,6 @@ const Customer = () => {
       $(".invalid-feedback").html('');
       fv.resetForm(true);
       
-
       if ( action == 'create') {
          $("#title-modal-product").text('Tambah Produk');
          dispatch({
@@ -173,23 +190,13 @@ const Customer = () => {
       $("#modal-product").modal('show');
    }
 
-   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      dispatch({
-         type: FORM_REDUCER_ACTIONS.CHANGE_INPUT,
-         payload: {
-            name: e.target.name,
-            value: e.target.value
-         }
-      });
-   }
-
-   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+   const store = () => {
       if ( fv ) {
          fv.validate().then((status: string) => {
             if ( status == 'Invalid' ) {
                // setFormStatus('invalid');
                myToast.warning("Lengkapi data terlebih dahulu");
+
             } else {
                // FORM VALID
                $("#btn-store-product").attr('disabled', 'disabled');
@@ -223,7 +230,7 @@ const Customer = () => {
       <PageToolbar>
          <PageTitle> Product List </PageTitle>
          <PageAction>
-            <button type="button" className="btn btn-light-primary me-3" onClick={() => setShowAlert(true)}>
+            <button type="button" className="btn btn-light-primary me-3" onClick={setActive}>
                <span className="svg-icon svg-icon-2">
                </span>
                Show Alert
@@ -232,33 +239,9 @@ const Customer = () => {
          </PageAction>
       </PageToolbar>
 
-      <AnimatePresence>
-      { showAlert &&  
-         <Swal 
-            dialogType='confirm'
-            type='warning'
-            onProcess={() => alert('te')} 
-            onClose={() => setShowAlert(false)}
-            message={'Non aktifkan user ini?'}
-            processName={'Non Aktif'}
-         />
-      }
-
-      { !isFormValid &&  
-         <Swal 
-            dialogType='alert'
-            type='warning'
-            onClose={() => setFormStatus('valid')}
-            message={'Lengkapi form terlebih dahulu'}
-         />
-      }
-      </AnimatePresence>
-
       <ModalProduct
          ref={formRef}
-         form={form}
-         handleSubmit={handleSubmit}
-         handleChange={handleChange}
+         store={store}
       />
 
       <div id="kt_app_content" className="app-content flex-column-fluid">

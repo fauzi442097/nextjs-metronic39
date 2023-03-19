@@ -2,122 +2,54 @@ import React, { useEffect, useRef, useState } from 'react'
 import type { ReactElement } from 'react'
 import type { NextPageWithLayout } from '../pages/_app'
 import GuestLayout from '@/layouts/guest/guest'
-import Input from '@/components/form/Input'
 import Alert from '@/components/Alert'
 import { AnimatePresence } from 'framer-motion'
-import Swal from '@/components/Swal'
+import { useForm, SubmitHandler  } from 'react-hook-form'
+import Input from '@/components/form/Input'
+import { hideLoadingForm, showLoadingForm } from '@/utils/globalHelper'
+import * as yup from "yup";
+import { yupResolver } from '@hookform/resolvers/yup';
 
+
+const loginSchema = yup.object({
+  email: yup.string().required('Wajib diisi').email('Format email tidak valid'),
+  password: yup.string().required('Wajib diisi').min(6, 'Minimal disii 6 karakter'),
+});
+
+type Credential = yup.InferType<typeof loginSchema>;
 
 const login: NextPageWithLayout = () => {
 
-    const formRef = useRef<HTMLFormElement>(null);
+    const { 
+      register, 
+      handleSubmit,
+      formState: {
+        errors
+      }
+    } = useForm<Credential>({
+      resolver: yupResolver(loginSchema)
+    });
+
     const buttonRef = useRef<HTMLButtonElement>(null);
-  
-    const [username, setUsername] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const [loginFailed, setLoginFailed] = useState<boolean>(false);
-    const [fv, setFv] = useState<any>();
     const [showAlert, setShowAlert] = useState<boolean>(false);
       
-    useEffect(() => {
-      setFv(initFormValidation());
-    },[]);
+    const login: SubmitHandler<Credential> = (formValues) => {
 
-    const initFormValidation = () => {
-      // @ts-ignore
-      return FormValidation.formValidation(
-        formRef.current,
-        {
-            fields: {
-                'username': {
-                    validators: {
-                        notEmpty: {
-                            message: 'Wajib diisi'
-                        },
-                        stringLength: {
-                          min: 3,
-                          message: 'Minimal diisi 3 karakter'
-                        }
-                    }
-                },
-                'password': {
-                  validators: {
-                    notEmpty: {
-                      message: 'Wajib diisi'
-                    },
-                    stringLength: {
-                      min: 6,
-                      message: 'Minimal diisi 6 karakter'
-                    }
-                  }
-                }
-            },
+        showLoadingForm(buttonRef);
 
-            plugins: {
-                 // @ts-ignore
-                trigger: new FormValidation.plugins.Trigger(),
-                 // @ts-ignore
-                bootstrap: new FormValidation.plugins.Bootstrap5({
-                    rowSelector: '.fv-row',
-                    eleInvalidClass: '',
-                    eleValidClass: ''
-                })
-            }
-        }
-      );
-    }
-
-    const showLoading = (setLoading: boolean) => {
-      if ( buttonRef.current ) 
-        if ( setLoading ) {
-          buttonRef.current.setAttribute('data-kt-indicator', 'on');
-          buttonRef.current.disabled = true;
-        } else {
-          buttonRef.current.removeAttribute('data-kt-indicator');
-          buttonRef.current.disabled = false;
-        } 
-    }
-
-
-    const login = (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      if ( fv ) {
-        fv.validate().then((status: string) => {
-          if ( status == 'Valid' ) {
-              showLoading(true);
-
-             setTimeout(function () {
-                showLoading(false);
-                setShowAlert(true);
-                 // @ts-ignore
-                // Swal.fire({
-                //     text: "Form has been successfully submitted!",
-                //     icon: "success",
-                //     buttonsStyling: false,
-                //     confirmButtonText: "Ok, got it!",
-                //     customClass: {
-                //         confirmButton: "btn btn-primary"
-                //     }
-                // });
-
-                //form.submit(); // Submit form
-            }, 1000);
-          } else {
-            showLoading(false);
-            setLoginFailed(true);  
-          }
-        })
-      }
+        setTimeout(function () {
+            hideLoadingForm(buttonRef);            
+            setShowAlert(true);
+        }, 3000);
+        console.log(formValues);
     } 
-
-
 
     return (
       <div className="d-flex flex-center flex-column flex-lg-row-fluid">
 
         
         <div className={`w-lg-500px p-10`}>
-          <form ref={formRef} onSubmit={login} className="form w-100" id="kt_sign_in_form">
+          <form onSubmit={handleSubmit(login)} className="form w-100" id="kt_sign_in_form">
               <div className="text-center mb-11">
                 <h1 className="text-dark fw-bolder mb-3">Login</h1>
                 <div className="text-gray-500 fw-semibold fs-6">Masukan data login</div>
@@ -147,14 +79,36 @@ const login: NextPageWithLayout = () => {
               </div> */}
 
               <div className='row'>
-                <div className="fv-row mb-8">
-                  <Input.Text name="username" maxLength="30" className="bg-transparent" value={username} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}/>
-                </div>
-                
-                <div className="fv-row mb-3">
-                  <Input.Password autoComplete="off" name="password" maxLength="30" className="bg-transparent" value={password} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}/>
-                </div>
 
+                <Input 
+                  formGroupClass='mb-10'
+                  label="Email"
+                  name="email" 
+                  placeholder='example@gmail.com'
+                  register={register}
+                  errors={errors.email}
+                  validation={{ 
+                    required: "Wajib diisi"
+                   }} />
+
+                <Input 
+                  formGroupClass='mb-10'
+                  label="Password"
+                  type='password'
+                  name="password" 
+                  register={register}
+                  errors={errors.password}
+                  placeholder='*********'
+                  autoComplete="on"
+                  validation={{ 
+                    required: "Wajib diisi",
+                    minLength: {
+                      value: 6,
+                      message: "Minimal diisi 6 karakter"
+                    }
+                   }} />
+
+                
                 <div className="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
                 <div />
                   <a href="../../demo39/dist/authentication/layouts/corporate/reset-password.html" className="link-primary">Lupa Password ?</a>
@@ -164,7 +118,7 @@ const login: NextPageWithLayout = () => {
                 <div className="d-grid mb-10">
                   <button type="submit" id="kt_sign_in_submit" className="btn btn-primary" ref={buttonRef}>
                       <span className="indicator-label">Login</span>
-                      <span className="indicator-progress">Please wait...
+                      <span className="indicator-progress">Processing...
                       <span className="spinner-border spinner-border-sm align-middle ms-2" /></span>
                   </button>
                 </div>

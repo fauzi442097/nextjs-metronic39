@@ -2,35 +2,40 @@
 import Button from '@/components/Button'
 import React, { useEffect, useReducer, useRef, useState, forwardRef } from 'react'
 import dynamic from 'next/dynamic';
-import Input from '@/components/Form/Input';
 import Modal, { ModalBody, ModalFooter, ModalHeader } from '@/components/Modal';
 import { formProduct } from '@/hooks/productReducer';
+import { useForm } from 'react-hook-form';
+import Input from '@/components/form/Input';
 
 
 interface IModalProduct {
-   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void,
-   handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void,
-   form: formProduct
+   store: () => void,
 }
 
-const ModalProduct = forwardRef<HTMLFormElement, IModalProduct>(({ handleSubmit, handleChange, form }, ref) => {
+// const ModalProduct = forwardRef<HTMLFormElement, IModalProduct>(({ handleSubmit, handleChange, form }, ref) => {
+const ModalProduct = forwardRef<HTMLFormElement, IModalProduct>(({ store }: any, ref) => {
+   
+   const { register, handleSubmit, watch, formState: { errors } } = useForm(); 
+
+   console.log(watch('brand'));
+
   return (
    <Modal id="modal-product">
       <ModalHeader> <h4 id="title-modal-product"> Product </h4> </ModalHeader>
-         <form ref={ref} onSubmit={handleSubmit} id="form-product">
+         <form ref={ref} onSubmit={handleSubmit(store)} id="form-product">
             <ModalBody> 
                <div className='row'>
                   <div className='form-group mb-8 fv-row'>
                      <label className='fs-6 fw-semibold mb-2'> Title </label>
-                     <Input.Text name="title" id="title" onChange={handleChange} value={form.title}/> 
+                     <Input.Text id="title" {...register('title')}/> 
                   </div>
                   <div className='form-group mb-8 fv-row'>
                      <label className='fs-6 fw-semibold mb-2'> Description </label>
-                     <textarea className='form-control' onChange={handleChange} value={form.description} rows={3} id="description" name='description' />
+                     <textarea className='form-control' {...register('description')} id="description" name='description' />
                   </div>
                   <div className='form-group mb-8 fv-row'>
                      <label className='fs-6 fw-semibold mb-2'> Brand </label>
-                     <Input.Text name="brand" onChange={handleChange} value={form.brand} id="brand"/> 
+                     <input type="text" className='form-control' {...register('brand')}/>
                   </div>
                </div>
             </ModalBody>

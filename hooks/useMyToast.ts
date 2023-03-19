@@ -1,7 +1,8 @@
-import { ToastMessageContext, useToasterStore } from "@/stores/toaster";
+import { useToasterStore } from "@/stores/toaster";
+import { NotificationType } from "@/utils/types/globalTypes";
 import { useCallback, useMemo } from "react";
 
-export function useToaster() {
+export function useMyToast() {
     const store = useToasterStore();
     const generateId = useCallback(() => {
         return Date.now().toString(36) + Math.random().toString(36).substring(2, 5);
@@ -10,7 +11,7 @@ export function useToaster() {
     const show = useCallback(( 
         message: string, 
         title?: string, 
-        context: ToastMessageContext = "default", 
+        context: NotificationType = "default", 
         timeout = 3000
     ) => {
 
@@ -33,6 +34,3 @@ export function useToaster() {
     }), [show, store]);
 }
 
-// const handlerToast = useToaster();
-// const myToast = handlerToast;
-// export default myToast

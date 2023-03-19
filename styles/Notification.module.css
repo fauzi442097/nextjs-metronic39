@@ -1,0 +1,16 @@
+.notification-progress:before {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   height: 100%;
+   width: 100%;
+   background: var(--bg-color);
+   animation: progress 3s linear forwards;
+}
+
+@keyframes progress {
+   100% {
+      right: 100%;
+   }
+}

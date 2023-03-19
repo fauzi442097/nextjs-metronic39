@@ -1,9 +1,8 @@
 
-import React, {ReactNode, useEffect, ReactElement} from 'react'
+import React, {ReactNode, useEffect} from 'react'
 import dynamic from 'next/dynamic';
-import { Toaster } from 'react-hot-toast'
-import ToastContainer from '@/components/MyToast/ToastContainer';
-import { useToaster } from '@/hooks/toaster';
+import MyToast from '@/components/toast/MyToast';
+import MyAlert from '@/components/alert/MyAlert';
 
 interface Props {
    children: ReactNode
@@ -28,14 +27,9 @@ const index = ({children} : Props) => {
 
   return (
    <div className="d-flex flex-column flex-root app-root" id="kt_app_root">
-      <ToastContainer />
-
-      {/* <Toaster
-         position="top-right"
-         reverseOrder={true}
-      /> */}
-
       
+      <MyToast/>
+      <MyAlert/>
 
       <div className="app-page flex-column flex-column-fluid" id="kt_app_page">
          <Header/>

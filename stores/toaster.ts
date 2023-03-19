@@ -1,22 +1,7 @@
+import { IToasterStore, IToastMessage } from '@/utils/interfaces/IToast';
 import create from 'zustand';
 
-export type ToastMessageContext = "default" | "info" | "success" | "warning" | "error";
-
-export interface IToastMessage {
-    id: string;
-    title?: string,
-    message: string;
-    context: ToastMessageContext;
-}
-
 const MAX_TOASTS = 5;
-
-interface IToasterStore {
-    messages: IToastMessage[];
-    addMessage: (message: IToastMessage) => void;
-    removeMessage: (id: string) => void;
-    clearMessages: () => void;
-}
 
 export const useToasterStore = create<IToasterStore>((set, get) => ({
     messages: [],
