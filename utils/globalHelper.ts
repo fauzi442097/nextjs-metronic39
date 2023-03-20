@@ -1,15 +1,12 @@
 import {RefObject } from "react";
 
-export const showLoadingForm = (buttonRef: RefObject<HTMLButtonElement>) => {
-   if ( buttonRef.current ) {
-      buttonRef.current.setAttribute('data-kt-indicator', 'on');
-      buttonRef.current.disabled = true;
-   }
+export const showLoadingForm = (idButton: string) => {
+   $("#" + idButton).attr({
+      'data-kt-indicator': 'on',
+      'disabled': true
+   });
 }
 
-export const hideLoadingForm = (buttonRef: RefObject<HTMLButtonElement>) => {
-   if ( buttonRef.current ) {
-      buttonRef.current.removeAttribute('data-kt-indicator');
-      buttonRef.current.disabled = false;
-   }
+export const hideLoadingForm = (idButton: string) => {
+   $("#" + idButton).removeAttr('data-kt-indicator disabled')
 }

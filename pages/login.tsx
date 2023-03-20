@@ -5,10 +5,10 @@ import GuestLayout from '@/layouts/guest/guest'
 import Alert from '@/components/Alert'
 import { AnimatePresence } from 'framer-motion'
 import { useForm, SubmitHandler  } from 'react-hook-form'
-import Input from '@/components/form/Input'
 import { hideLoadingForm, showLoadingForm } from '@/utils/globalHelper'
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
+import Input from '@/components/Form/Input'
 
 
 const loginSchema = yup.object({
@@ -35,10 +35,10 @@ const login: NextPageWithLayout = () => {
       
     const login: SubmitHandler<Credential> = (formValues) => {
 
-        showLoadingForm(buttonRef);
+        showLoadingForm('kt_sign_in_submit');
 
         setTimeout(function () {
-            hideLoadingForm(buttonRef);            
+            hideLoadingForm('kt_sign_in_submit');            
             setShowAlert(true);
         }, 3000);
         console.log(formValues);
@@ -81,32 +81,24 @@ const login: NextPageWithLayout = () => {
               <div className='row'>
 
                 <Input 
-                  formGroupClass='mb-10'
-                  label="Email"
-                  name="email" 
-                  placeholder='example@gmail.com'
-                  register={register}
-                  errors={errors.email}
-                  validation={{ 
-                    required: "Wajib diisi"
-                   }} />
+                    formGroupClass='mb-10'
+                    label="Email"
+                    name="email" 
+                    placeholder='example@gmail.com'
+                    register={register}
+                    errors={errors.email}
+                  />
 
                 <Input 
-                  formGroupClass='mb-10'
-                  label="Password"
-                  type='password'
-                  name="password" 
-                  register={register}
-                  errors={errors.password}
-                  placeholder='*********'
-                  autoComplete="on"
-                  validation={{ 
-                    required: "Wajib diisi",
-                    minLength: {
-                      value: 6,
-                      message: "Minimal diisi 6 karakter"
-                    }
-                   }} />
+                    formGroupClass='mb-10'
+                    label="Password"
+                    type='password'
+                    name="password" 
+                    register={register}
+                    errors={errors.password}
+                    placeholder='*********'
+                    autoComplete="on"
+                  />
 
                 
                 <div className="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
@@ -116,7 +108,7 @@ const login: NextPageWithLayout = () => {
                 
 
                 <div className="d-grid mb-10">
-                  <button type="submit" id="kt_sign_in_submit" className="btn btn-primary" ref={buttonRef}>
+                  <button type="submit" id="kt_sign_in_submit" className="btn btn-primary">
                       <span className="indicator-label">Login</span>
                       <span className="indicator-progress">Processing...
                       <span className="spinner-border spinner-border-sm align-middle ms-2" /></span>
