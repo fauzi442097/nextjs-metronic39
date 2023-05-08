@@ -8,7 +8,11 @@ import { useForm, SubmitHandler  } from 'react-hook-form'
 import { hideLoadingForm, showLoadingForm } from '@/utils/globalHelper'
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
-import Input from '@/components/Form/Input'
+import Input from '@/components/form/Input'
+import API from '@/lib/axios'
+import { useRouter } from 'next/router'
+import Cookies from 'js-cookie'
+import { defaultConfigCookie } from '@/lib/cookie'
 
 
 const loginSchema = yup.object({
@@ -20,6 +24,8 @@ type Credential = yup.InferType<typeof loginSchema>;
 
 const login: NextPageWithLayout = () => {
 
+   
+
     const { 
       register, 
       handleSubmit,
@@ -30,18 +36,36 @@ const login: NextPageWithLayout = () => {
       resolver: yupResolver(loginSchema)
     });
 
-    const buttonRef = useRef<HTMLButtonElement>(null);
+
     const [showAlert, setShowAlert] = useState<boolean>(false);
+    const [errorMessage, setErrorMessage] = useState<string>('');
+    const router = useRouter();
+
+    useEffect(() => {
+      if(Cookies.get('token')) router.push('/');
+    }, []);
+
       
-    const login: SubmitHandler<Credential> = (formValues) => {
+    const login: SubmitHandler<Credential> = async (formValues) => {
 
         showLoadingForm('kt_sign_in_submit');
 
-        setTimeout(function () {
-            hideLoadingForm('kt_sign_in_submit');            
-            setShowAlert(true);
-        }, 3000);
-        console.log(formValues);
+        try {
+            const { data : response } = await API.post('login', formValues);
+            Cookies.set('token', response.data.access_token);
+            router.push('/');
+        } catch ( error ) {
+
+            const { status, data } = error.response;
+            if ( status == 401 ) {
+              setShowAlert(true);
+              setErrorMessage(data.message);
+            }
+
+            console.error(data);
+        } finally {
+          hideLoadingForm('kt_sign_in_submit');            
+        }
     } 
 
     return (
@@ -57,7 +81,7 @@ const login: NextPageWithLayout = () => {
 
 
               <AnimatePresence>
-                { showAlert && <Alert onCloseAlert={() => setShowAlert(false)} type="error" title="Login gagal" message="Username atau password salah"/>}
+                { showAlert && <Alert onCloseAlert={() => setShowAlert(false)} type="error" title="Login gagal" message={errorMessage}/>}
               </AnimatePresence>
               
               

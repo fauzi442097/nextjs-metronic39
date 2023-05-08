@@ -12,13 +12,13 @@
             },
             {
                 "id": 3,
-                "name": "Product",
-                "url": "/product"
+                "name": "User",
+                "url": "/users"
             },
             {
                 "id": 4,
-                "name": "User",
-                "url": "/user"
+                "name": "Ranking",
+                "url": "/ranking"
             },
             {
                 "id" : 5,

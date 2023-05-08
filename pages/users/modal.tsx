@@ -2,15 +2,15 @@
 import Button from '@/components/Button'
 import React from 'react'
 import Modal, { ModalBody, ModalFooter, ModalHeader } from '@/components/Modal';
-import Input from '@/components/Form/Input';
 import { UseFormRegister, UseFormHandleSubmit, FieldErrors} from 'react-hook-form';
 import { formProduct } from '.';
+import Input from '@/components/form/Input';
 
 
 type ModalProductType = {
    register: UseFormRegister<formProduct>,
    handleSubmit: UseFormHandleSubmit<formProduct>,
-   onSubmit: () => void,
+   onSubmit: (formValues: formProduct) => void,
    onError?: () => void,
    errors: FieldErrors<formProduct>
 }
@@ -29,28 +29,23 @@ const ModalProduct = ({
          <form onSubmit={handleSubmit(onSubmit, onError)} id="form-product">
             <ModalBody> 
                <div className='row'>
+
+                  <input type="hidden" {...register('user_id')} id="user_id"/>
+                  
                   <Input
                      formGroupClass='mb-10'
-                     label='Title'
-                     name="title"
+                     label='Nama Lengkap'
+                     name="name"
                      register={register}
-                     errors={errors.title}
+                     errors={errors.name}
                      />
 
                   <Input 
                      formGroupClass='mb-10'
-                     label='Description'
-                     name="description"
+                     label='email'
+                     name="email"
                      register={register}
-                     errors={errors.description}
-                     />
-
-                  <Input 
-                     formGroupClass='mb-10'
-                     label='Branch'
-                     name="brand"
-                     register={register}
-                     errors={errors.brand}
+                     errors={errors.email}
                      />
                </div>
             </ModalBody>

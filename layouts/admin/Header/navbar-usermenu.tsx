@@ -1,6 +1,14 @@
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/router'
 import React from 'react'
 
 const NavbarUserMenu = () => {
+
+   const router = useRouter();
+   const logout = () => {
+      Cookies.remove('token');
+      router.push('/login');
+   }
   return (    
    <div className="app-navbar-item ms-2 ms-lg-6 me-lg-5" id="kt_header_user_menu_toggle">
       {/*begin::Menu wrapper*/}
@@ -281,7 +289,7 @@ const NavbarUserMenu = () => {
 
          {/*begin::Menu item*/}
          <div className="menu-item px-5">
-            <a href="../../demo39/dist/authentication/layouts/corporate/sign-in.html" className="menu-link px-5">Sign Out</a>
+            <a onClick={() => logout()} className="menu-link px-5">Logout</a>
          </div>
          {/*end::Menu item*/}
       </div>

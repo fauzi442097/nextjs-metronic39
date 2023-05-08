@@ -1,14 +1,13 @@
 import axios, { AxiosRequestConfig} from "axios";
 
 const config: AxiosRequestConfig = {
-   baseURL: 'https://dummyjson.com',
+   baseURL: process.env.NEXT_PUBLIC_API_URL,
    headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer 10192'
+      'Content-Type': 'application/json'
    }
 }
 
-const API = axios.create(config);
 
+const API = axios.create(config);
 export default API

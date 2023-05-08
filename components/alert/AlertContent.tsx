@@ -50,7 +50,6 @@ const AlertContent = ({
   dialogType 
 } : IAlertContent) => {
 
-  console.log(context);
 
   const icon = useMemo(() => notificationStyle.setIcon(context), [context]);
   const bgColor = useMemo(() => notificationStyle.setBgColor(context), [context]);
@@ -81,14 +80,23 @@ const AlertContent = ({
         </div>
         <div className='d-flex flex-column justify-content-center pt-6 pe-8 w-100 pb-6'>
             <div>
-              <h2 className={`${textColor} mb-4`}> {dialogType == 'confirm' ? 'Konfirmasi' : titleAlert} </h2>
-              <p className='fs-4'> {message} </p>
+              <h2 className={`${textColor} mb-4`}> {dialogType == 'confirm' ? titleAlert || 'Konfirmasi' : titleAlert} </h2>
+              <p className='fs-4' dangerouslySetInnerHTML={{ __html: message }} />
             </div>
             <div className='d-flex gap-4 text-right mt-4 justify-content-end'>
               { dialogType == 'confirm' ? (
                     <>
                         <Button.Custom onClick={onClose} size="md" className='border-1 border border-secondary bg-hover-secondary btn-hover-text-white'> {labelCancel || 'Tutup' } </Button.Custom> 
-                        <Button onClick={onSubmit} size="md" variant={buttonPrimaryType} className='fw-bold'> {labelSubmit} </Button>
+                        <Button 
+                          onClick={onSubmit} 
+                          size="md" 
+                          variant={buttonPrimaryType} 
+                          id="btn-confirm-alert"
+                          className='fw-bold'> 
+                            <span className="indicator-label">{labelSubmit} </span>
+                            <span className="indicator-progress">Processing...
+                            <span className="spinner-border spinner-border-sm align-middle ms-2" /></span>
+                          </Button>
                     </>
                   ) : (
                     <Button onClick={onClose} size="md" variant={buttonPrimaryType} className='fw-bold'> {labelCancel || 'Tutup' }</Button>

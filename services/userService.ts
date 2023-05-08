@@ -1,7 +1,7 @@
 import API from "@/lib/axios";
 import Cookies from "js-cookie";
 
-const getProducts = async () => {
+const getUsers = async () => {
    try {
       const response = await API.get('users', {
          headers: {
@@ -14,7 +14,7 @@ const getProducts = async () => {
    }
 }
 
-const getProduct = async (productId: string) => {
+const getUser = async (productId: string) => {
    try {
       const response = await API.get(`users/${productId}`, {
          headers: {
@@ -28,6 +28,6 @@ const getProduct = async (productId: string) => {
 }
 
 export default {
-   getProducts,
-   getProduct
+   getUsers,
+   getUser
 }

@@ -3,6 +3,9 @@ import React, {ReactNode, useEffect} from 'react'
 import dynamic from 'next/dynamic';
 import MyToast from '@/components/toast/MyToast';
 import MyAlert from '@/components/alert/MyAlert';
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
+import { useMyAlert } from '@/hooks/useMyAlert';
 
 interface Props {
    children: ReactNode
@@ -19,10 +22,16 @@ const setThemeMode = () => {
 
 const index = ({children} : Props) => {
 
+   const router = useRouter();
+   const myAlert = useMyAlert();
    
 
    useEffect(() => {
+      
       setThemeMode();
+      // if ( !Cookies.get('token')) {
+      //    router.push('/login');
+      // }
    }, []);
 
   return (

@@ -55,7 +55,7 @@ const MyDatatable = ({
           data={data}
           print={true}
           export={true}
-          filterPlaceholder={'Cari produk'}
+          filterPlaceholder={'Cari Data'}
         >
           <DataTable
               customStyles={CustomStyles}

@@ -16,6 +16,7 @@ const ToastContent = ({ message, title, context = "default", onClose } : IToastC
   const bgColorProgress = {
     "--bg-color": `var(--bs-${bgColor.split('-')[1]})`
   } as React.CSSProperties
+  
 
   return (
     <motion.div
@@ -36,7 +37,7 @@ const ToastContent = ({ message, title, context = "default", onClose } : IToastC
 
         <div className="d-flex flex-column pe-0">
             <h4 style={{ letterSpacing: '.5px' }} className={`mb-1 ${textColor}`}>{titleToast}</h4>
-            <p style={{ fontWeight: '500' }}>{message}</p>
+            <p style={{ fontWeight: '500' }} dangerouslySetInnerHTML={{ __html: message }} />
         </div>
         
     
