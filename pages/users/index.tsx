@@ -13,6 +13,7 @@ import * as yup from "yup";
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { APIRequest } from '@/utils/apiHelper';
 import UserList from './list';
+import { BAD_REQUEST, INTERNAL_SERVER_ERROR } from '@/utils/responseCode';
 
 const formProductShema = yup.object({
    user_id: yup.string().notRequired(),
@@ -44,11 +45,11 @@ const Customer = () => {
       },
       onError(error: any, variables, context) {
          hideLoadingForm('btn-store-product');
-         if ( !error || error.status == 500) {
+         if ( !error || error.status == INTERNAL_SERVER_ERROR) {
             myToast.error('Terjadi kesalahan pada server');
          }
 
-         if ( error.status == 400 ) {
+         if ( error.status == BAD_REQUEST ) {
             myToast.warning('Bad Request');
          }
       },
@@ -93,7 +94,7 @@ const Customer = () => {
             $("#modal-product").modal('show');
          } catch ( error ) {
             const status = error.response.status;
-            if ( status == 500 ) {
+            if ( status == INTERNAL_SERVER_ERROR ) {
                myAlert.error('Terjadi kesalahan pada server'); 
             }
          }

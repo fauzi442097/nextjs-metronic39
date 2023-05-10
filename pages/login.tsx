@@ -55,14 +55,12 @@ const login: NextPageWithLayout = () => {
             Cookies.set('token', response.data.access_token);
             router.push('/');
         } catch ( error ) {
-
+            console.error(error)
             const { status, data } = error.response;
             if ( status == 401 ) {
               setShowAlert(true);
               setErrorMessage(data.message);
             }
-
-            console.error(data);
         } finally {
           hideLoadingForm('kt_sign_in_submit');            
         }
