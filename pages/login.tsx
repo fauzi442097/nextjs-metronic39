@@ -42,7 +42,8 @@ const login: NextPageWithLayout = () => {
     const router = useRouter();
 
     useEffect(() => {
-      if(Cookies.get('token')) router.push('/');
+      // if(Cookies.get('token')) router.push('/');
+      router.push('/')
     }, []);
 
       
